@@ -19,8 +19,11 @@ export class AuthServiceService {
             this.isLoggedInStatus = true;
             localStorage.setItem('currentUsuario', JSON.stringify(usuario));
             return true;
+          } else {
+            this.isLoggedInStatus = false;
+            return false;
           }
-          return false;
+
       })
     );
 
