@@ -12,6 +12,17 @@ export class AuthServiceService {
 
   constructor(private http: HttpClient) { }
 
+  checkAuthentication(): boolean {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.isLoggedInStatus = true;
+    } else {
+      this.isLoggedInStatus = false;
+    }
+    return this.isLoggedInStatus;
+  }
+
+
   login(email: string, password: string): Observable<boolean>{
     return this.http.post<any>('http://localhost:3000/auth/autenticate', {email, password})
     .pipe(
@@ -41,7 +52,4 @@ export class AuthServiceService {
     return this.isLoggedInStatus;
   }
 
-  getToken(): string {
-    return this.token;
-  }
 }

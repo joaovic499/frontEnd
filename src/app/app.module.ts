@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AuthServiceService } from './auth-service.service';
 
 @NgModule({
   declarations: [
@@ -33,4 +34,8 @@ import { RegisterComponent } from './pages/register/register.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private authService: AuthServiceService) {
+    this.authService.checkAuthentication(); // Verifica a autenticação ao iniciar o aplicativo
+  }
+ }
