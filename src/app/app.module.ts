@@ -1,19 +1,25 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { ButtonComponent } from './components/button/button.component';
-import { LoginComponent } from './pages/login/login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { HomeComponent } from './pages/home/home.component';
-import { RegisterComponent } from './pages/register/register.component';
 import { AuthServiceService } from './auth-service.service';
+import { ButtonComponent } from './components/button/button.component';
 import { MenuComponent } from './components/menu/menu.component';
-import {MatIconModule} from '@angular/material/icon';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { HeaderComponent } from './pages/header/header.component';
+
+
 
 @NgModule({
   declarations: [
@@ -23,6 +29,7 @@ import {MatIconModule} from '@angular/material/icon';
     HomeComponent,
     RegisterComponent,
     MenuComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,10 @@ import {MatIconModule} from '@angular/material/icon';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
+    MatSortModule,
+    MatToolbarModule
   ],
   providers: [
     provideAnimationsAsync()
