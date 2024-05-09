@@ -1,6 +1,10 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +14,37 @@ export class AuthServiceService {
   private token: string = '';
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   checkAuthentication(): boolean {
     const token = localStorage.getItem('token');
     if (token) {
-      this.isLoggedInStatus = true;
+      if (this.isTokenExpired(token)) {
+        // Token expirado, desautentica o usuário
+        this.isLoggedInStatus = false;
+        localStorage.removeItem('token');
+      } else {
+        // Token válido, autentica o usuário
+        this.isLoggedInStatus = true;
+      }
     } else {
       this.isLoggedInStatus = false;
     }
     return this.isLoggedInStatus;
   }
+
+  private isTokenExpired(token: string): boolean {
+
+    const decodedToken = jwtDecode(token);
+    const currentTime = Date.now() / 1000; // Converte para segundos
+    if (decodedToken && decodedToken.exp) {
+      return decodedToken.exp < currentTime;
+    } else {
+      // Se não houver informação de expiração no token, considere-o como expirado
+      return true;
+    }
+  }
+
 
 
   login(email: string, password: string): Observable<boolean>{
@@ -43,9 +67,13 @@ export class AuthServiceService {
   }
 
   logout(): void {
-    this.isLoggedInStatus = false;
-    this.token = '';
     localStorage.removeItem('token');
+      if (!localStorage.getItem('token')){
+        alert("Usuário deslogado com sucesso !")
+          this.router.navigate(['/login']);
+    } else {
+      alert("Ocorrou um erro ")
+  }
   }
 
   isLoggedIn(): boolean {

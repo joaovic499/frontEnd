@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AuthServiceService } from './auth-service.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'api-jsonMongooDb';
+  constructor(private authService: AuthServiceService) {}
+
+ logout(): void{
+    this.authService.logout();
+ }
 }
