@@ -19,7 +19,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './pages/header/header.component';
-import { FuncionariosComponent } from './funcionarios/funcionarios.component';
+import { CrudComponent } from './pages/crud/crud.component';
+import {MatInputModule} from '@angular/material/input';
+
+
 
 
 
@@ -32,7 +35,7 @@ import { FuncionariosComponent } from './funcionarios/funcionarios.component';
     RegisterComponent,
     MenuComponent,
     HeaderComponent,
-    FuncionariosComponent,
+    CrudComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { FuncionariosComponent } from './funcionarios/funcionarios.component';
     MatTableModule,
     MatSortModule,
     MatToolbarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatInputModule
   ],
   providers: [
     provideAnimationsAsync()
