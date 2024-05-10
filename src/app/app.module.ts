@@ -19,6 +19,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './pages/header/header.component';
+import { FuncionariosComponent } from './funcionarios/funcionarios.component';
 
 
 
@@ -31,6 +32,7 @@ import { HeaderComponent } from './pages/header/header.component';
     RegisterComponent,
     MenuComponent,
     HeaderComponent,
+    FuncionariosComponent,
   ],
   imports: [
     BrowserModule,
