@@ -14,21 +14,21 @@
             <div class="login-form">
                <form [formGroup]="registerForm" (ngSubmit)="register()">
                   <div class="form-group">
-                    <label for="exampleInputName" class="form-label">Name</label>
+                    <label for="exampleInputName" class="form-label">Nome:</label>
                      <input formControlName="name" class="form-control" id="exampleInputName">
                      </div>
 
                      <div class="form-group">
-                     <label for="exampleInputEmail" class="form-label">Email</label>
+                     <label for="exampleInputEmail" class="form-label">Email:</label>
                      <input formControlName="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
                      <div id="emailHelp" class="form-text">Nunca compartilhe o seu email</div>
                   </div>
                   <div class="form-group">
-                     <label for="exampleInputPassword" class="form-label">Password</label>
+                     <label for="exampleInputPassword" class="form-label">Senha:</label>
                      <input formControlName="password" class="form-control" id="exampleInputPassword" type="password">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword" class="form-label">Cofirm Password </label>
+                    <label for="exampleInputPassword" class="form-label">Confirme a Senha: </label>
                     <input formControlName="confirmpassword" class="form-control" id="exampleInputConfirmPassword" type="password">
                  </div>
                  <br>
