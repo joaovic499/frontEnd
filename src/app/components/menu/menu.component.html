@@ -1,4 +1,12 @@
 <nav class="sidemenu">
   <ul>
-    <span class="logo"></span>
+     <li>
+      <img src="../../../assets/mil-logo-removebg-preview.png" width="100px">
+      <span class = "logo.png" width="40px">Ponto Inteligente MIL</span>
+     </li>
+    <li routerLink="/home"> <mat-icon>home</mat-icon>Home</li>
+    <li routerLink="/funcionarios"> <mat-icon>person_add</mat-icon>Cadastrar funcionarios</li>
+    <a href="" target="_blank"><li><mat-icon>local_fire_department</mat-icon>FireBase</li></a>
+    <a href="" target="_blank"><li><mat-icon>description</mat-icon>Angular</li></a>
+    <li routerLink="/login" class="Logout" (click)="logout()"><mat-icon>logout</mat-icon>Sair</li>
   </ul>

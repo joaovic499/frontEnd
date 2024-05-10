@@ -9,8 +9,4 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent {
   title = 'api-jsonMongooDb';
   constructor(private authService: AuthServiceService) {}
-
- logout(): void{
-    this.authService.logout();
- }
 }
