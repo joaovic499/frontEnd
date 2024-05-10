@@ -21,6 +21,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './pages/header/header.component';
 import { CrudComponent } from './pages/crud/crud.component';
 import {MatInputModule} from '@angular/material/input';
+import { MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -49,7 +50,10 @@ import {MatInputModule} from '@angular/material/input';
     MatSortModule,
     MatToolbarModule,
     MatProgressSpinnerModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   providers: [
     provideAnimationsAsync()
