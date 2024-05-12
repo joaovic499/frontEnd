@@ -13,9 +13,9 @@
     <div class="col-12">
       <app-button class="float-end" textButton=" + Cadastrar"></app-button>
 
-      <mat-form-field class="filter">
+      <mat-form-field class="custom-mat-form-field">
         <mat-label>Busca por funcionario </mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Digite sua busca" #input>
+        <input class="filterbox" matInput (keyup)="applyFilter($event)" placeholder="Digite sua busca" #input>
       </mat-form-field>
       <div class="mat-elevation-z8">
         <table class="mat-elevation-z8" mat-table [dataSource]="dataSource" matSort>

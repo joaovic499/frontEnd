@@ -28,7 +28,10 @@ export class AuthServiceService {
         this.isLoggedInStatus = true;
       }
     } else {
+
       this.isLoggedInStatus = false;
+      alert("Sessão Expirada, faça o Login novamente!")
+      this.router.navigate(['/login']);
     }
     return this.isLoggedInStatus;
   }
@@ -40,7 +43,6 @@ export class AuthServiceService {
     if (decodedToken && decodedToken.exp) {
       return decodedToken.exp < currentTime;
     } else {
-      // Se não houver informação de expiração no token, considere-o como expirado
       return true;
     }
   }

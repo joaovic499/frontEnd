@@ -39,6 +39,7 @@ export class CrudComponent {
         this.listfuncionarios = response;
 
         this.dataSource.data = this.listfuncionarios;
+
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
     },
