@@ -38,7 +38,7 @@
           <ng-container matColumnDef="action">
             <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
             <td mat-cell class="td-table" *matCellDef="let row">
-              <mat-icon class="icone-tabela">visibility</mat-icon>
+              <mat-icon class="icone-tabela" (click)="openModalViewUser(row)">visibility</mat-icon>
               <mat-icon class="icone-tabela">edit</mat-icon>
               <mat-icon class="icone-tabela">delete</mat-icon>
             </td>
@@ -52,7 +52,7 @@
           </tr>
         </table>
 
-        <mat-paginator [pageSizeOptions]="[3, 5, 7]" aria-label="Selecione funcionarios por paginas"></mat-paginator>
+        <mat-paginator class="shadow-sm" [pageSizeOptions]="[3, 5, 7]" aria-label="Selecione funcionarios por paginas"></mat-paginator>
       </div>
     </div>
   </div>

@@ -22,6 +22,8 @@ import { HeaderComponent } from './pages/header/header.component';
 import { CrudComponent } from './pages/crud/crud.component';
 import {MatInputModule} from '@angular/material/input';
 import { MatPaginatorModule} from '@angular/material/paginator';
+import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-user.component';
+import {MatDialogModule } from '@angular/material/dialog'
 
 
 
@@ -37,6 +39,7 @@ import { MatPaginatorModule} from '@angular/material/paginator';
     MenuComponent,
     HeaderComponent,
     CrudComponent,
+    ModalViewUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { MatPaginatorModule} from '@angular/material/paginator';
     MatInputModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [
     provideAnimationsAsync()
