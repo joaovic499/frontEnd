@@ -60,11 +60,14 @@
         <div class="card-info">
           <h3 class="titulo">Último funcionário cadastrado</h3>
           <hr class="hr">
-          <div class="row">
+          <div class="row" *ngIf="ultimoFuncionario">
             <div class="col-1"> <mat-icon>account_circle</mat-icon></div>
-            <div class="col-4"> <p class="texto-p">MIL-1715273252831-034</p> </div>
-            <div class="col"> <p class="texto-p"> João Victor </p> </div>
-            <div class="col"> <p class="texto-p"> Mecânico</p> </div>
+            <div class="col-4"> <p class="texto-p"> {{ultimoFuncionario.codigo}} </p> </div>
+            <div class="col"> <p class="texto-p"> {{ultimoFuncionario.nome}} </p> </div>
+            <div class="col"> <p class="texto-p"> {{ultimoFuncionario.cargo }} </p> </div>
+          </div>
+          <div  *ngIf="!ultimoFuncionario">
+            <p> Nenhum funcionario encontrado</p>
           </div>
         </div>
       </div>
