@@ -22,6 +22,7 @@ export class ModalViewUserComponent {
 
 closeModal(){this.dialogRef.close(); }
 
+
 }
 
 
