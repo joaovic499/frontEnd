@@ -79,5 +79,14 @@ export class CrudComponent {
 
   }
 
+  openModalEditUser(funcionario: Funcionario){
+    this.dialog.open(ModalFormUserComponent, {
+      width: '700px',
+      height: '400px',
+      data: funcionario
+    }).afterClosed().subscribe(() => this.getListUsers());
+
+  }
+
 }
 

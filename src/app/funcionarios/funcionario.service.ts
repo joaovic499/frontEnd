@@ -21,8 +21,8 @@ export class FuncionarioService {
     return this.http.get<Funcionario>(`http://localhost:3001/edit/${codigo}`);
   }
 
-  update(data: Funcionario) {
-    return this.http.put<Funcionario>(`http://localhost:3001/edit/${data.codigo}`, data)
+  update( codigo: string, data: Funcionario) {
+    return this.http.put<Funcionario>(`http://localhost:3001/edit/${codigo}`, data)
 }
 
   delete(codigo: String){

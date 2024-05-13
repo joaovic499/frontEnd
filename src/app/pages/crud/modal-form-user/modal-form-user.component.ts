@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+
+
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FuncionarioService } from '../../../funcionarios/funcionario.service';
 import { Funcionario } from '../../../funcionarios/funcionario';
 
@@ -16,7 +18,8 @@ export class ModalFormUserComponent {
   constructor(
     public dialogRef: MatDialogRef<ModalFormUserComponent>,
     private formBuilder: FormBuilder,
-    private funcionarioService: FuncionarioService
+    private funcionarioService: FuncionarioService,
+    @Inject(MAT_DIALOG_DATA) public data: any,
   ) {}
 
   ngOnInit() {
@@ -24,30 +27,52 @@ export class ModalFormUserComponent {
   }
 
   saveFuncionario() {
-    if (this.formFuncionario.valid) {
-      const dadosFuncionario = this.formFuncionario.value;
-      this.funcionarioService.create(dadosFuncionario).subscribe(() => {
-        alert('Funcionario Cadastrado com sucesso');
-        this.closeModal();
 
-      },
-      error => {
-        alert('Houve um erro ao salvar o funcionário');
-        console.error(error);
-      });
-  } else {
-    window.alert('Por favor, preencha todos os campos corretamente.');
+    const objFuncForm: Funcionario = this.formFuncionario.getRawValue();
+    console.log('Dados do funcionário:', objFuncForm);
+
+    if (this.data && this.data.codigo) { // Verifique se data.codigo está definido
+      this.funcionarioService.update(this.data.codigo, objFuncForm ).subscribe(
+        (response: any) => {
+          alert('Usuario Editado com sucesso');
+          this.closeModal();
+        },
+        (error: any) => {
+          console.error('Erro ao editar usuário:', error);
+
+        }
+      );
+    } else {
+      this.funcionarioService.create(objFuncForm).subscribe(
+        (response: any) => {
+          alert('Funcionario Cadastrado com sucesso');
+          this.closeModal();
+        },
+        (error: any) => {
+          console.error('Erro ao cadastrar funcionário:', error);
+        }
+      );
+    }
   }
-}
-
-
-
   buildForm() {
     this.formFuncionario = this.formBuilder.group({
       nome: [null, [Validators.required]],
       cargo: [null, [Validators.required]]
-    })
-  }
+    });
+
+    if(this.data && this.data.nome) {
+      this.fillForm();
+      }
+    }
+
+    fillForm() {
+      this.formFuncionario.patchValue({
+        nome: this.data.nome,
+        cargo: this.data.cargo
+      });
+
+    }
+
 
 
   closeModal(){this.dialogRef.close(); }
