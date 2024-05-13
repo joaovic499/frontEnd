@@ -23,7 +23,8 @@ import { CrudComponent } from './pages/crud/crud.component';
 import {MatInputModule} from '@angular/material/input';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-user.component';
-import {MatDialogModule } from '@angular/material/dialog'
+import {MatDialogModule } from '@angular/material/dialog';
+import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-user.component'
 
 
 
@@ -40,6 +41,7 @@ import {MatDialogModule } from '@angular/material/dialog'
     HeaderComponent,
     CrudComponent,
     ModalViewUserComponent,
+    ModalFormUserComponent,
   ],
   imports: [
     BrowserModule,

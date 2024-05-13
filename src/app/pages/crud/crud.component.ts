@@ -6,6 +6,7 @@ import { Funcionario } from '../../funcionarios/funcionario';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalViewUserComponent } from './modal-view-user/modal-view-user.component';
+import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
 
 
 @Component({
@@ -44,6 +45,7 @@ export class CrudComponent {
 
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this.paginator._intl.itemsPerPageLabel="Funcionarios por página";
     },
     error: (err) => {
       console.error(err);
@@ -67,6 +69,13 @@ export class CrudComponent {
       height: '330px',
       data: row
     })
+
+  }
+  openModalAddUser(){
+    this.dialog.open(ModalFormUserComponent, {
+      width: '700px',
+      height: '400px'
+    }).afterClosed().subscribe(() => this.getListUsers());
 
   }
 
