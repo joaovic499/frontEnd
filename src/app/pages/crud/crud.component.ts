@@ -54,6 +54,21 @@ export class CrudComponent {
   }
 
 
+  deleteFuncionario(codigo: string){
+    return this.funcionarioService.delete(codigo).subscribe(
+      () => {
+        alert('Usuario deletado com sucesso');
+        this.getListUsers();
+
+      },
+      (error: any) => {
+        console.error('Erro ao excluir funcionario: ', error);
+      }
+    )
+
+  }
+
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -87,6 +102,7 @@ export class CrudComponent {
     }).afterClosed().subscribe(() => this.getListUsers());
 
   }
+
 
 }
 

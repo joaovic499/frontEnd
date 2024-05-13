@@ -14,6 +14,7 @@ import { Funcionario } from '../../../funcionarios/funcionario';
 export class ModalFormUserComponent {
 
   formFuncionario: FormGroup;
+  editFuncionario: boolean = false;
 
   constructor(
     public dialogRef: MatDialogRef<ModalFormUserComponent>,
@@ -24,6 +25,9 @@ export class ModalFormUserComponent {
 
   ngOnInit() {
     this.buildForm();
+    if(this.data && this.data.codigo) {
+      this.editFuncionario = true;
+    }
   }
 
   saveFuncionario() {

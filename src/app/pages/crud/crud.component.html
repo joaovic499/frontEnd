@@ -40,7 +40,7 @@
             <td mat-cell class="td-table" *matCellDef="let row">
               <mat-icon class="icone-tabela" (click)="openModalViewUser(row)">visibility</mat-icon>
               <mat-icon class="icone-tabela" (click)="openModalEditUser(row)">edit</mat-icon>
-              <mat-icon class="icone-tabela">delete</mat-icon>
+              <mat-icon mat-icon class="icone-tabela" (click)="deleteFuncionario(row.codigo)">delete</mat-icon>
             </td>
           </ng-container>
 
