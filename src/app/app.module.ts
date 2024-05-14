@@ -18,7 +18,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { HeaderComponent } from './pages/header/header.component';
 import { CrudComponent } from './pages/crud/crud.component';
 import {MatInputModule} from '@angular/material/input';
 import { MatPaginatorModule} from '@angular/material/paginator';
@@ -40,7 +39,6 @@ import { TimerComponent } from './pages/timer/timer.component';
     HomeComponent,
     RegisterComponent,
     MenuComponent,
-    HeaderComponent,
     CrudComponent,
     ModalViewUserComponent,
     ModalFormUserComponent,

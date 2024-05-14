@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: 'register', component: RegisterComponent},
-  {path: 'funcionario', component: CrudComponent},
+  {path: 'cadastro/funcionario', component: CrudComponent, canActivate: [AuthGuard]},
   {path: 'timer', component: TimerComponent}
 ];
 
