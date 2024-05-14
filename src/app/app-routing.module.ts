@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AuthGuard } from './auth-guard';
 import { CrudComponent } from './pages/crud/crud.component';
+import { TimerComponent } from './pages/timer/timer.component';
 
 
 
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: 'register', component: RegisterComponent},
-  {path: 'funcionario', component: CrudComponent}
+  {path: 'funcionario', component: CrudComponent},
+  {path: 'timer', component: TimerComponent}
 ];
 
 @NgModule({

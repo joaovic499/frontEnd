@@ -25,6 +25,7 @@ import { MatPaginatorModule} from '@angular/material/paginator';
 import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-user.component';
 import {MatDialogModule } from '@angular/material/dialog';
 import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-user.component';
+import { TimerComponent } from './pages/timer/timer.component';
 
 
 
@@ -43,6 +44,7 @@ import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-
     CrudComponent,
     ModalViewUserComponent,
     ModalFormUserComponent,
+    TimerComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,6 @@ import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-
     MatSortModule,
     MatPaginatorModule,
     MatDialogModule,
-
   ],
   providers: [
     provideAnimationsAsync()
