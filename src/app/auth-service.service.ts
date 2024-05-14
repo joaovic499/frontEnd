@@ -1,6 +1,6 @@
 
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { Router } from '@angular/router';
@@ -23,6 +23,7 @@ export class AuthServiceService {
         // Token expirado, desautentica o usuário
         this.isLoggedInStatus = false;
         localStorage.removeItem('token');
+        localStorage.removeItem('name');
       } else {
         // Token válido, autentica o usuário
         this.isLoggedInStatus = true;
@@ -30,7 +31,7 @@ export class AuthServiceService {
     } else {
 
       this.isLoggedInStatus = false;
-      alert("Sessão Expirada, faça o Login novamente!")
+      alert("Você precisa fazer o login")
       this.router.navigate(['/login']);
     }
     return this.isLoggedInStatus;
@@ -54,9 +55,11 @@ export class AuthServiceService {
     .pipe(
       map(response => {
         const token = response.token;
+        const name = response.name;
           if (token){
             this.isLoggedInStatus = true;
             localStorage.setItem('token', token);
+            localStorage.setItem('name', name);
             return true;
           } else {
             this.isLoggedInStatus = false;
@@ -70,6 +73,7 @@ export class AuthServiceService {
 
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('name');
       if (!localStorage.getItem('token')){
         alert("Usuário deslogado com sucesso !")
           this.router.navigate(['/login']);
@@ -80,6 +84,11 @@ export class AuthServiceService {
 
   isLoggedIn(): boolean {
     return this.isLoggedInStatus;
+  }
+
+  getNomeUsuario(): string {
+    const nome = localStorage.getItem('name');
+    return nome !== null ? nome : ''; // Retorna uma string vazia se o nome for nulo
   }
 
 }

@@ -1,6 +1,7 @@
 import { Funcionario } from './../../funcionarios/funcionario';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AuthServiceService } from '../../auth-service.service';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +12,9 @@ export class HomeComponent implements OnInit {
   countFuncionario: number;
   spinnerValue: number;
   ultimoFuncionario: Funcionario;
+  nomeUsuario: string | null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public authService: AuthServiceService) { }
 
   ngOnInit(): void {
       this.http.get<any>('http://localhost:3001/totalfuncionarios').subscribe(
@@ -26,6 +28,7 @@ export class HomeComponent implements OnInit {
       );
 
       this.carregarUltimoFuncionario();
+      this.nomeUsuario = this.authService.getNomeUsuario()
     }
 
     carregarUltimoFuncionario(){
@@ -38,7 +41,7 @@ export class HomeComponent implements OnInit {
           console.error("Erro em pegar o ultimo funcionario", error);
         }
       )
+
+
     }
-
-
 }
