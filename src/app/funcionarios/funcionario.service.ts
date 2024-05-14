@@ -13,6 +13,7 @@ export class FuncionarioService {
     return this.http.get<Funcionario[]>('http://localhost:3001/funcionarios');
   }
 
+
   create(data: Funcionario) {
     return this.http.post('http://localhost:3001/register', data);
   }

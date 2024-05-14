@@ -25,6 +25,7 @@ import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-
 import {MatDialogModule } from '@angular/material/dialog';
 import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-user.component';
 import { TimerComponent } from './pages/timer/timer.component';
+import { FuncionariosLoginComponent } from './funcionarios/funcionarios-login/funcionarios-login.component';
 
 
 
@@ -43,6 +44,7 @@ import { TimerComponent } from './pages/timer/timer.component';
     ModalViewUserComponent,
     ModalFormUserComponent,
     TimerComponent,
+    FuncionariosLoginComponent,
   ],
   imports: [
     BrowserModule,

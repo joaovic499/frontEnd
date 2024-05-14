@@ -6,6 +6,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AuthGuard } from './auth-guard';
 import { CrudComponent } from './pages/crud/crud.component';
 import { TimerComponent } from './pages/timer/timer.component';
+import { FuncionariosLoginComponent } from './funcionarios/funcionarios-login/funcionarios-login.component';
 
 
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: 'register', component: RegisterComponent},
   {path: 'cadastro/funcionario', component: CrudComponent, canActivate: [AuthGuard]},
-  {path: 'timer', component: TimerComponent}
+  {path: 'timer', component: TimerComponent},
+  {path: 'funcionario', component: FuncionariosLoginComponent}
 ];
 
 @NgModule({

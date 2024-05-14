@@ -71,6 +71,22 @@ export class AuthServiceService {
 
   }
 
+  loginFunc(codigo: string, senha: string): Observable<boolean>{
+    return this.http.post<any>('http://localhost:3001/autenticate', {codigo, senha})
+    .pipe (
+      map(response => {
+        const funcionario = response;
+        if (funcionario){
+          this.isLoggedInStatus = true;
+          localStorage.setItem('currentFuncioario', JSON.stringify(funcionario));
+          return  true;
+        }
+          return false;
+      })
+    );
+
+  }
+
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('name');
