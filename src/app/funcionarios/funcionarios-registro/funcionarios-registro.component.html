@@ -1,0 +1,40 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="sidenav">
+         <div class="login-main-text">
+            <h2>Application<br> Página de Registro</h2>
+            <p>Registre a sua conta.</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form [formGroup]="registerFuncForm" (ngSubmit)="registerFuncionario()">
+                  <div class="form-group">
+                    <label for="exampleInputName" class="form-label">Nome: </label>
+                     <input formControlName="nome" class="form-control" id="nome">
+                     </div>
+
+                     <div class="form-group">
+                     <label for="exampleInputEmail" class="form-label">Cargo:</label>
+                     <input formControlName="cargo" class="form-control" id="cargo" aria-describedby="emailHelp">
+                     <div id="emailHelp" class="form-text">Nunca compartilhe o seu email</div>
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputPassword" class="form-label">Senha:</label>
+                     <input formControlName="senha" class="form-control" id="senha">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword" class="form-label">Cofirme a Senha: </label>
+                    <input formControlName="confirmarSenha" class="form-control" id="confirmSenha">
+                 </div>
+                 <br>
+
+                  <button type="submit" class="btn btn-black">Register</button>
+               </form>
+            </div>
+         </div>
+      </div>
