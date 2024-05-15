@@ -17,4 +17,23 @@ export class AuthGuard implements CanActivate {
       return false;
     }
   }
+
+  canActivateAdmin(): boolean {
+    if (this.authService.isLoggedIn() && this.authService.isAdmin()){
+      return true;
+
+    } else {
+      this.router.navigate(['/']);
+      return false;
+    }
+  }
+
+  canActivateFuncionario(): boolean {
+    if (this.authService.isLoggedIn() && this.authService.isFuncionario()) {
+      return true;
+    } else {
+      this.router.navigate(['/login']); // Redireciona para a página de login de o funcionario não estiver autenticado
+      return false;
+    }
+  }
 }

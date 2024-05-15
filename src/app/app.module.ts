@@ -27,6 +27,7 @@ import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-
 import { TimerComponent } from './pages/timer/timer.component';
 import { FuncionariosLoginComponent } from './funcionarios/funcionarios-login/funcionarios-login.component';
 import { FuncionariosRegistroComponent } from './funcionarios/funcionarios-registro/funcionarios-registro.component';
+import { FuncionariosHomeComponent } from './funcionarios/funcionarios-home/funcionarios-home.component';
 
 
 
@@ -47,6 +48,7 @@ import { FuncionariosRegistroComponent } from './funcionarios/funcionarios-regis
     TimerComponent,
     FuncionariosLoginComponent,
     FuncionariosRegistroComponent,
+    FuncionariosHomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { CrudComponent } from './pages/crud/crud.component';
 import { TimerComponent } from './pages/timer/timer.component';
 import { FuncionariosLoginComponent } from './funcionarios/funcionarios-login/funcionarios-login.component';
 import { FuncionariosRegistroComponent } from './funcionarios/funcionarios-registro/funcionarios-registro.component';
+import { FuncionariosHomeComponent } from './funcionarios/funcionarios-home/funcionarios-home.component';
 
 
 
@@ -15,12 +16,13 @@ import { FuncionariosRegistroComponent } from './funcionarios/funcionarios-regis
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
-  {path: '', redirectTo: '/login', pathMatch: 'full' },
-  {path: 'register', component: RegisterComponent},
+  {path: '', redirectTo: '/funcionario', pathMatch: 'full' },
+  {path: 'register/usuario', component: RegisterComponent},
   {path: 'cadastro/funcionario', component: CrudComponent, canActivate: [AuthGuard]},
   {path: 'timer', component: TimerComponent},
   {path: 'funcionario', component: FuncionariosLoginComponent},
-  {path: 'registro/funcionario', component: FuncionariosRegistroComponent}
+  {path: 'registro/funcionario', component: FuncionariosRegistroComponent},
+  {path: 'funcionario/home', component: FuncionariosHomeComponent}
 ];
 
 @NgModule({
