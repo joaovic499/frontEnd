@@ -31,7 +31,7 @@ export class FuncionariosLoginComponent implements OnInit {
         if (loginOk) {
           alert("Funcionario Logado com sucesso")
           this.loginForm.reset();
-          this.router.navigate(['home']);
+          this.router.navigate(['funcionario/home']);
         }
 
       }, error => {

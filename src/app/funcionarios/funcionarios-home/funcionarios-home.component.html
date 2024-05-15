@@ -1,0 +1,82 @@
+<app-menu></app-menu>
+
+<div class="container-fluid pt-3">
+  <div class="row">
+    <!-- Parte Esquerda da Tela -->
+    <div class="col-12 col-lg-9">
+      <div class="card-info">
+        <div class="row">
+          <div class="col-12 col-md-8">
+            <h1 class="titulo">Ponto Inteligente</h1>
+            <h3 class="subtitulo"> Mais eficiência na gestão dos <span>Funcionários</span> e de seus benefícios.
+            Chega de sistemas antigos e sem usabilidade, agora com a <span>MIL Informática</span> o seu registro de
+            trabalho fica até 3x mais rápido e simplificado. <br>
+            Confira um resumo das informações em nosso <span>Dashboard</span> </h3>
+            <app-button class="iniciar" textButton="Iniciar" routerLink="/timer"></app-button>
+          </div>
+          <div class="col-12 col-md-4">
+            <img src="../../../assets/dashboard.png" width="100%">
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <!-- CARD- ESQUERDA -->
+        <div class="col-6">
+          <div class="card-info">
+            <div class="row">
+              <div class="col-8">
+                <p class="texto-card">Total de Funcionários cadastrados no sistema</p>
+                <p class="numero-card">{{countFuncionario}}</p>
+              </div>
+              <div class="col-4">
+                <mat-progress-spinner class="example-margin mx-auto color-spinner" mode="determinate" [value]="spinnerValue"></mat-progress-spinner>
+                <p class="info-spinner">{{countFuncionario}} /150</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD- DIREITA -->
+        <div class="col-6">
+          <div class="card-info">
+            <div class="row">
+              <div class="col-8">
+                <p class="texto-card">Total de Funcionarios cadastrados no mês </p>
+                <p class="numero-card">{{countFuncionario}}</p>
+                <p class="destaque-card"> + {{countFuncionario}}  adicionados no último mês</p>
+              </div>
+              <div class="col-4">
+                <mat-progress-spinner class="example-margin mx-auto color-spinner" mode="determinate" [value]="spinnerValue"></mat-progress-spinner>
+                <p class="info-spinner">{{ countFuncionario }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+
+      </div>
+      </div>
+
+
+    <!-- Parte Direita da Tela -->
+    <div class="col-13 col-lg-3">
+      <div class="card-info">
+        <div class="container-perfil">
+          <img class="img-perfil" src="../../../assets/mil-logo-removebg-preview.png">
+          <li> <mat-icon>location_on</mat-icon> São José do Rio Preto - SP</li>
+          <br>
+          <h4>Seja bem-vindo(a) <span class="nomeUsuario" ></span> </h4>
+          <br>
+        </div>
+        <hr class="hr">
+        <p class="texto-p">" Criada em 1.999 a partir de um acordo de parceria com a Totvs, na época Microsiga, a MIL desenvolve soluções para o mercado automotivo, com foco nos segmentos de Concessionárias, Auto Peças e Oficinas especializadas (Auto Centers). Sempre atenta às alterações do cenário econômico e alinhada às necessidades do mercado e expectativa de seus clientes, a MIL utiliza tecnologia de vanguarda para fornecer soluções de qualidade, flexíveis e adaptáveis."</p>
+        <hr class="hr">
+
+      </div>
+    </div>
+  </div>
+</div>
