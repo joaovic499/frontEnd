@@ -18,18 +18,13 @@ export class AuthServiceService {
     const token = localStorage.getItem('token');
     const tokenFuncionario = localStorage.getItem('tokenFuncionario');
 
-    if (token) {
-      if (this.isTokenExpired(token)) {
-        // Token expirado, desautentica
+    if (token && this.isTokenExpired(token)) {
         this.isLoggedInStatus = false;
         localStorage.removeItem('token');
         localStorage.removeItem('name');
-      } else {
-        // Token válido, autentica
-        this.isLoggedInStatus = true;
-      }
-    } else if (tokenFuncionario) {
-        if (this.isTokenExpired(tokenFuncionario)) {
+    }
+
+    if (tokenFuncionario && this.isTokenExpired(tokenFuncionario)) {
           this.isLoggedInStatus = false;
           localStorage.removeItem('tokenFuncionario');
           localStorage.removeItem('name');
@@ -37,12 +32,9 @@ export class AuthServiceService {
         } else {
           this.isLoggedInStatus = true;
         }
-    } else {
-      this.isLoggedInStatus = false;
-      alert("Você precisa fazer o login")
-    }
-    return this.isLoggedInStatus;
-  }
+
+        return this.isLoggedInStatus;
+      }
 
   private isTokenExpired(token: string): boolean {
 
@@ -89,7 +81,7 @@ export class AuthServiceService {
             localStorage.setItem('userType', 'funcionario');
             return true;
           } else {
-            this,this.isLoggedInStatus = false;
+            this.isLoggedInStatus = false;
             return false;
           }
       })
@@ -99,42 +91,57 @@ export class AuthServiceService {
 
   logout(): void {
     const userType = localStorage.getItem('userType');
-    localStorage.removeItem('token');
-    localStorage.removeItem('tokenFuncionario')
-    localStorage.removeItem('name');
-    localStorage.removeItem('userType');
+
     this.isLoggedInStatus = false;
 
-      if (!localStorage.getItem('token') && userType === 'usuario'){
-          alert("Usuario Deslogado com sucesso !")
-          this.router.navigate(['/login']);
-        } else if (!localStorage.getItem('tokenFuncionario') && userType === 'funcionario'){
-          alert("Funcionario Deslogado com sucesso !")
-          this.router.navigate(['/funcionario']);
-        } else  {
-          this.router.navigate(['/funcionario']);
-    }
-  }
+      if(!localStorage.getItem('token') && userType === 'usuario'){
+        localStorage.removeItem('token');
+        localStorage.removeItem('name');
+        localStorage.removeItem('userType');
+        alert("Usuario Deslogado com sucesso !");
+        this.router.navigate(['/login']);
+          } else if (!localStorage.getItem('tokenFuncionario') && userType === 'funcionario'){
+            localStorage.removeItem('tokenFuncionario')
+            localStorage.removeItem('userType');
+            alert("Funcionario Deslogado com sucesso!");
+            this.router.navigate(['/funcionario']);
+        }
+      }
 
-
-
-
-  isLoggedIn(): boolean {
-    return this.isLoggedInStatus;
-  }
 
   getNomeUsuario(): string {
     const nome = localStorage.getItem('name');
     return nome !== null ? nome : ''; // Retorna uma string vazia se o nome for nulo
   }
 
-  isAdmin(): boolean {
+  isLoggedIn(): boolean {
     return this.isLoggedInStatus;
-
   }
 
   isFuncionario(): boolean {
-    return this.isLoggedInStatus;
+    const userType = localStorage.getItem('userType');
+    return userType ==='funcionario';
   }
+
+  isTokenValid(): boolean {
+    const token = localStorage.getItem('token');
+    return token ? !this.isTokenExpired(token) : false;
+  }
+
+  isTokenFuncionarioValid(): boolean {
+    const tokenFuncionario = localStorage.getItem('tokenFuncionario');
+    return tokenFuncionario ? !this.isTokenExpired(tokenFuncionario) :false;
+  }
+
+  logoutFuncionario() {
+    localStorage.removeItem('tokenFuncionario');
+    localStorage.removeItem('name');
+  }
+
+  logoutUsuario() {
+    localStorage.removeItem('token')
+    localStorage.removeItem('name');
+  }
+
 
 }

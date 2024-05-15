@@ -11,28 +11,24 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.authService.isLoggedIn()) {
+      if (this.authService.isFuncionario()) { // Verifica se é funcionário primeiro
+        if (!this.authService.isTokenFuncionarioValid()) { // Verifica se o token de funcionário é inválido
+          alert('Sessão do funcionário expirado. Tente Novamente!')
+          this.authService.logoutFuncionario();
+          this.router.navigate(['funcionario']);
+          return false;
+        }
+      } else if (!this.authService.isTokenValid()) { // Verifica se o token do usuário é inválido
+        alert('Sessão expirada. Por favor, faça o login novamente.');
+        this.authService.logoutUsuario();
+        this.router.navigate(['login'])
+        return false;
+      }
+
       return true;
     } else {
-      this.router.navigate(['/login']); // Redireciona para a página de login se o usuário não estiver autenticado
-      return false;
-    }
-  }
-
-  canActivateAdmin(): boolean {
-    if (this.authService.isLoggedIn() && this.authService.isAdmin()){
-      return true;
-
-    } else {
-      this.router.navigate(['/']);
-      return false;
-    }
-  }
-
-  canActivateFuncionario(): boolean {
-    if (this.authService.isLoggedIn() && this.authService.isFuncionario()) {
-      return true;
-    } else {
-      this.router.navigate(['/login']); // Redireciona para a página de login de o funcionario não estiver autenticado
+      alert('Você precisa fazer o login!');
+      this.router.navigate(['/login'])
       return false;
     }
   }

@@ -18,11 +18,11 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: '/funcionario', pathMatch: 'full' },
   {path: 'register/usuario', component: RegisterComponent},
-  {path: 'cadastro/funcionario', component: CrudComponent, canActivate: [AuthGuard]},
+  {path: 'cadastro/funcionario', component: CrudComponent},
   {path: 'timer', component: TimerComponent},
   {path: 'funcionario', component: FuncionariosLoginComponent},
   {path: 'registro/funcionario', component: FuncionariosRegistroComponent},
-  {path: 'funcionario/home', component: FuncionariosHomeComponent}
+  {path: 'funcionario/home', component: FuncionariosHomeComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
