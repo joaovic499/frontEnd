@@ -75,23 +75,23 @@ export class AuthServiceService {
 }
 
   logoutFuncionario(): void {
-    localStorage.removeItem('tokenFuncionario');
     this.isLoggedFuncionario = false;
+    localStorage.removeItem('tokenFuncionario');
     alert("Funcionario deslogado com sucesso")
     this.router.navigate(['funcionario']);
   }
 
 
   logoutUsuario(): void {
+    this.isLoggedUsuario = false;
     localStorage.removeItem('token');
     localStorage.removeItem('name');
-    this.isLoggedUsuario = false;
     alert("Usuário deslogado com sucesso")
-    this.router.navigate(['funcionario']);
+    this.router.navigate(['login']);
   }
 
   isLoggedIn(): boolean {
-    return this.isLoggedUsuario || this.isLoggedFuncionario;
+    return !!localStorage.getItem('token') || !!localStorage.getItem('tokenFuncionario');
   }
 
   isTokenFuncionarioValid(): boolean {
@@ -111,11 +111,11 @@ export class AuthServiceService {
   }
 
   isFuncionario(): boolean {
-    return this.isLoggedFuncionario;
+    return !!localStorage.getItem('tokenFuncionario');
   }
 
   isUsuario(): boolean {
-    return this.isLoggedUsuario;
+    return !!localStorage.getItem('token')
   }
 
 
