@@ -74,7 +74,6 @@ import { FuncionariosHomeComponent } from './funcionarios/funcionarios-home/func
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private authService: AuthServiceService) {
-    this.authService.checkAuthentication(); // Verifica a autenticação ao iniciar o aplicativo
-  }
+
+
  }
