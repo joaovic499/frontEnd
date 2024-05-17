@@ -27,6 +27,31 @@
       </mat-form-field>
     </div>
 
+    <div class="col-12 col-md-6 md-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Senha</mat-label>
+        <input type="password" matInput formControlName="senha" placeholder="Digite a sua senha">
+        @if (formFuncionario.controls['senha'].invalid) {
+          <mat-error>Por favor digite uma senha válida </mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-6 md-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Confirmar Senha</mat-label>
+        <input type="password" matInput formControlName="confirmarSenha" placeholder="Confirme a sua senha">
+        @if (formFuncionario.controls['confirmarSenha'].invalid) {
+          <mat-error>Por favor confirme a sua senha </mat-error>
+        }
+
+      </mat-form-field>
+      <mat-error *ngIf="formFuncionario.get('confirmarSenha')?.value !== formFuncionario.get('senha')?.value">
+        Senhas não correspondentes</mat-error>
+    </div>
+
+
+
     <div class="col-12">
       <button class="botao-primario float-end" [disabled]="!formFuncionario.valid" (click)="saveFuncionario()">Salvar Funcionário</button>
     </div>

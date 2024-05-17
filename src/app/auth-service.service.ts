@@ -56,6 +56,7 @@ export class AuthServiceService {
           if (tokenFuncionario) {
             this.isLoggedFuncionario = true;
             localStorage.setItem('tokenFuncionario', tokenFuncionario);
+            localStorage.setItem('nome', nome);
             return true;
           } else {
             this.isLoggedFuncionario = false;
@@ -108,6 +109,11 @@ export class AuthServiceService {
   getNomeUsuario(): string {
     const nome = localStorage.getItem('name');
     return nome !== null ? nome : ''; // Retorna uma string vazia se o nome for nulo
+  }
+
+  getNomeFuncionario(): string {
+    const nome = localStorage.getItem('nome');
+    return nome !== null ? nome: '';
   }
 
   isFuncionario(): boolean {

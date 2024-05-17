@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent, canActivate: [UsuarioAuthservicesService]},
   {path: 'register/usuario', component: RegisterComponent},
-  {path: 'cadastro/funcionario', component: CrudComponent},
+  {path: 'cadastro/funcionario', component: CrudComponent, canActivate: [UsuarioAuthservicesService]},
   {path: 'timer', component: TimerComponent},
   {path: 'funcionario', component: FuncionariosLoginComponent},
   {path: 'registro/funcionario', component: FuncionariosRegistroComponent},

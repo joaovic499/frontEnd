@@ -61,7 +61,9 @@ export class ModalFormUserComponent {
   buildForm() {
     this.formFuncionario = this.formBuilder.group({
       nome: [null, [Validators.required]],
-      cargo: [null, [Validators.required]]
+      cargo: [null, [Validators.required]],
+      senha: [null, [Validators.required]],
+      confirmarSenha: [null, [Validators.required]]
     });
 
     if(this.data && this.data.nome) {
@@ -72,7 +74,9 @@ export class ModalFormUserComponent {
     fillForm() {
       this.formFuncionario.patchValue({
         nome: this.data.nome,
-        cargo: this.data.cargo
+        cargo: this.data.cargo,
+        senha: this.data.senha,
+        confirmarSenha: this.data.confirmarSenha
       });
 
     }

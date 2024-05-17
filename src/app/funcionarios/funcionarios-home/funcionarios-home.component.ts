@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../../auth-service.service';
-import { Funcionario } from '../funcionario';
+
 
 @Component({
   selector: 'app-funcionarios-home',
@@ -12,7 +12,7 @@ export class FuncionariosHomeComponent implements OnInit {
 
   countFuncionario: number;
   spinnerValue: number;
-  nomeUsuario: string | null;
+  nomeFuncionario: string | null;
 
   constructor(private http: HttpClient, public authService: AuthServiceService) { }
 
@@ -27,7 +27,7 @@ export class FuncionariosHomeComponent implements OnInit {
         }
       );
 
-      this.nomeUsuario = this.authService.getNomeUsuario()
+      this.nomeFuncionario = this.authService.getNomeFuncionario();
     }
 
 
