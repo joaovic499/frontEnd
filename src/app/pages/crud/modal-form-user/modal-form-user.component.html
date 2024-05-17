@@ -27,7 +27,7 @@
       </mat-form-field>
     </div>
 
-    <div class="col-12 col-md-6 md-2">
+    <div class="col-12 col-md-6 md-2" *ngIf="!editFuncionario">
       <mat-form-field class="example-full-width w-100">
         <mat-label>Senha</mat-label>
         <input type="password" matInput formControlName="senha" placeholder="Digite a sua senha">
@@ -37,23 +37,28 @@
       </mat-form-field>
     </div>
 
-    <div class="col-12 col-md-6 md-2">
+    <div class="col-12 col-md-6 md-2" *ngIf="!editFuncionario">
       <mat-form-field class="example-full-width w-100">
         <mat-label>Confirmar Senha</mat-label>
         <input type="password" matInput formControlName="confirmarSenha" placeholder="Confirme a sua senha">
         @if (formFuncionario.controls['confirmarSenha'].invalid) {
           <mat-error>Por favor confirme a sua senha </mat-error>
         }
+        <div class = "Confirmar senha" *ngIf="!editFuncionario" >
+          <mat-error *ngIf="formFuncionario.get('confirmarSenha')?.value !== formFuncionario.get('senha')?.value">
+            Senhas não correspondentes</mat-error>
+          </div>
+
 
       </mat-form-field>
-      <mat-error *ngIf="formFuncionario.get('confirmarSenha')?.value !== formFuncionario.get('senha')?.value">
-        Senhas não correspondentes</mat-error>
-    </div>
+
+      </div>
+
 
 
 
     <div class="col-12">
-      <button class="botao-primario float-end" [disabled]="!formFuncionario.valid" (click)="saveFuncionario()">Salvar Funcionário</button>
+      <button class="botao-primario float-end" [disabled]="editFuncionario ? false : !formFuncionario.valid || (formFuncionario.get('confirmarSenha')?.value !== formFuncionario.get('senha')?.value)" (click)="saveFuncionario()">Salvar Funcionario</button>
     </div>
 
   </form>

@@ -75,8 +75,6 @@ export class ModalFormUserComponent {
       this.formFuncionario.patchValue({
         nome: this.data.nome,
         cargo: this.data.cargo,
-        senha: this.data.senha,
-        confirmarSenha: this.data.confirmarSenha
       });
 
     }
