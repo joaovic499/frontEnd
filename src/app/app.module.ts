@@ -29,6 +29,7 @@ import { FuncionariosLoginComponent } from './funcionarios/funcionarios-login/fu
 import { FuncionariosRegistroComponent } from './funcionarios/funcionarios-registro/funcionarios-registro.component';
 import { FuncionariosHomeComponent } from './funcionarios/funcionarios-home/funcionarios-home.component';
 import { MenuFuncionarioComponent } from './funcionarios/menu-funcionario/menu-funcionario.component';
+import { ModalSenhaFuncionarioComponent } from './funcionarios/modal-senha-funcionario/modal-senha-funcionario.component';
 
 
 
@@ -51,6 +52,7 @@ import { MenuFuncionarioComponent } from './funcionarios/menu-funcionario/menu-f
     FuncionariosRegistroComponent,
     FuncionariosHomeComponent,
     MenuFuncionarioComponent,
+    ModalSenhaFuncionarioComponent,
   ],
   imports: [
     BrowserModule,

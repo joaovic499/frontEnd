@@ -30,6 +30,8 @@ export class ModalFormUserComponent {
     }
   }
 
+
+
   saveFuncionario() {
 
     const objFuncForm: Funcionario = this.formFuncionario.getRawValue();

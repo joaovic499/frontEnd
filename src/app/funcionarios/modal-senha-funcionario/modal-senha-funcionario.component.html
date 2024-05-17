@@ -1,0 +1,37 @@
+<div class = "container-fluid p-3">
+  <mat-icon class="float-end hover" (click)="closeModal()">close</mat-icon>
+
+  <h2 class="subtitulo "> Troque sua Senha </h2>
+
+
+  <form class="row" [formGroup]="formFuncionario">
+    <div class="col-12 col-md-6 md-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Senha Atual:</mat-label>
+        <input type="password" matInput formControlName="senha" placeholder="Digite seu nome">
+        @if (formFuncionario.controls['senha'].invalid) {
+          <mat-error>Por favor digite sua senha </mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-6 md-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Digite a nova Senha:</mat-label>
+        <input type="text" matInput formControlName="novaSenha" placeholder="Digite o cargo atual">
+        @if (formFuncionario.controls['novaSenha'].invalid) {
+          <mat-error>Por favor digite uma senha válida </mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+
+    <div class="col-12 col-md-6 md-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Confirme a nova Senha:</mat-label>
+        <input type="text" matInput formControlName="confirmSenha" placeholder="Digite o cargo atual">
+        @if (formFuncionario.controls['confirmSenha'].invalid) {
+          <mat-error>Por favor digite uma senha valida </mat-error>
+        }
+      </mat-form-field>
+    </div>
