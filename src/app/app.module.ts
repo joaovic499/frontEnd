@@ -28,6 +28,7 @@ import { TimerComponent } from './pages/timer/timer.component';
 import { FuncionariosLoginComponent } from './funcionarios/funcionarios-login/funcionarios-login.component';
 import { FuncionariosRegistroComponent } from './funcionarios/funcionarios-registro/funcionarios-registro.component';
 import { FuncionariosHomeComponent } from './funcionarios/funcionarios-home/funcionarios-home.component';
+import { MenuFuncionarioComponent } from './funcionarios/menu-funcionario/menu-funcionario.component';
 
 
 
@@ -49,6 +50,7 @@ import { FuncionariosHomeComponent } from './funcionarios/funcionarios-home/func
     FuncionariosLoginComponent,
     FuncionariosRegistroComponent,
     FuncionariosHomeComponent,
+    MenuFuncionarioComponent,
   ],
   imports: [
     BrowserModule,

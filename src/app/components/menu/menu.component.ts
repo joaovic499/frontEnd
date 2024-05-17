@@ -15,5 +15,13 @@ export class MenuComponent  {
     this.authService.logout();
  }
 
+ isUsuario(): void {
+  this.authService.isUsuario();
+ }
+
+ isFuncionario(): void {
+  this.authService.isFuncionario();
+ }
+
 
 }
