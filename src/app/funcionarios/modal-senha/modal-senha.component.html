@@ -1,0 +1,30 @@
+<div class = "container-fluid p-3">
+  <mat-icon class="float-end hover" (click)="closeModal()">close</mat-icon>
+
+<h1 class="titulo">Troque sua senha</h1>
+<h2 class="subtitulo "> Digite a sua senha atual para poder troca-la </h2>
+
+<form [formGroup]="formTrocarSenha" (ngSubmit)="onSubmit()">
+  <div class="col-12 col-md-6 md-2">
+  <mat-form-field class="example-full-width w-100">
+    <input matInput type="password" formControlName="senhaAtual" placeholder="Senha atual">
+    </mat-form-field>
+  </div>
+
+
+  <div class="col-12 col-md-6 md-2">
+  <mat-form-field class="example-full-width w-100">
+    <input matInput type="password" formControlName="novaSenha" placeholder="Nova senha">
+    </mat-form-field>
+  </div>
+
+  <div class="col-12 col-md-6 md-2">
+  <mat-form-field class="example-full-width w-100">
+    <input matInput type="password" formControlName="confirmarNovaSenha" placeholder="Confirmar nova senha">
+  </mat-form-field>
+</div>
+  <div class="modal-footer">
+    <button class="botao-primario float-end" type="submit" mat-button color="primary">Salvar</button>
+  </div>
+</form>
+</div>

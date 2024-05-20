@@ -30,6 +30,7 @@ import { FuncionariosRegistroComponent } from './funcionarios/funcionarios-regis
 import { FuncionariosHomeComponent } from './funcionarios/funcionarios-home/funcionarios-home.component';
 import { MenuFuncionarioComponent } from './funcionarios/menu-funcionario/menu-funcionario.component';
 import { TimerFuncionarioComponent } from './funcionarios/timer-funcionario/timer-funcionario.component';
+import { ModalSenhaComponent } from './funcionarios/modal-senha/modal-senha.component';
 
 
 
@@ -53,6 +54,7 @@ import { TimerFuncionarioComponent } from './funcionarios/timer-funcionario/time
     FuncionariosHomeComponent,
     MenuFuncionarioComponent,
     TimerFuncionarioComponent,
+    ModalSenhaComponent,
   ],
   imports: [
     BrowserModule,
