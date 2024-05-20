@@ -1,12 +1,11 @@
-import { AuthServiceService } from './../../auth-service.service';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-timer',
-  templateUrl: './timer.component.html',
-  styleUrls: ['./timer.component.scss'],
+  selector: 'app-timer-funcionario',
+  templateUrl: './timer-funcionario.component.html',
+  styleUrl: './timer-funcionario.component.scss'
 })
-export class TimerComponent {
+export class TimerFuncionarioComponent {
 
   ms: any = '0' + 0;
   sec: any = '0' + 0;

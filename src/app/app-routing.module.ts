@@ -10,6 +10,7 @@ import { FuncionariosRegistroComponent } from './funcionarios/funcionarios-regis
 import { FuncionariosHomeComponent } from './funcionarios/funcionarios-home/funcionarios-home.component';
 import { FuncionarioAuthservicesService } from './funcionario-authservices.service';
 import { UsuarioAuthservicesService } from './usuario-authservices.service';
+import { TimerFuncionarioComponent } from './funcionarios/timer-funcionario/timer-funcionario.component';
 
 
 
@@ -22,7 +23,9 @@ const routes: Routes = [
   {path: 'timer', component: TimerComponent},
   {path: 'funcionario', component: FuncionariosLoginComponent},
   {path: 'registro/funcionario', component: FuncionariosRegistroComponent},
-  {path: 'funcionario/home', component: FuncionariosHomeComponent, canActivate: [FuncionarioAuthservicesService]}
+  {path: 'funcionario/home', component: FuncionariosHomeComponent, canActivate: [FuncionarioAuthservicesService]},
+  {path: 'funcionario/timer', component: TimerFuncionarioComponent, canActivate: [FuncionarioAuthservicesService]
+  }
 ];
 
 @NgModule({

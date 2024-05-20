@@ -29,7 +29,7 @@ import { FuncionariosLoginComponent } from './funcionarios/funcionarios-login/fu
 import { FuncionariosRegistroComponent } from './funcionarios/funcionarios-registro/funcionarios-registro.component';
 import { FuncionariosHomeComponent } from './funcionarios/funcionarios-home/funcionarios-home.component';
 import { MenuFuncionarioComponent } from './funcionarios/menu-funcionario/menu-funcionario.component';
-import { ModalSenhaFuncionarioComponent } from './funcionarios/modal-senha-funcionario/modal-senha-funcionario.component';
+import { TimerFuncionarioComponent } from './funcionarios/timer-funcionario/timer-funcionario.component';
 
 
 
@@ -52,7 +52,7 @@ import { ModalSenhaFuncionarioComponent } from './funcionarios/modal-senha-funci
     FuncionariosRegistroComponent,
     FuncionariosHomeComponent,
     MenuFuncionarioComponent,
-    ModalSenhaFuncionarioComponent,
+    TimerFuncionarioComponent,
   ],
   imports: [
     BrowserModule,
