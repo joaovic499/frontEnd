@@ -15,7 +15,7 @@ export class MenuFuncionarioComponent {
 
 
   logout(): void{
-    this.authService.logout();
+    this.authService.logoutFuncionario();
  }
 
 

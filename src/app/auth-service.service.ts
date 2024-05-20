@@ -78,8 +78,8 @@ export class AuthServiceService {
   logoutFuncionario(): void {
     this.isLoggedFuncionario = false;
     localStorage.removeItem('tokenFuncionario');
-    alert("Funcionario deslogado com sucesso")
-    this.router.navigate(['funcionario']);
+    alert("Funcionario deslogado com sucesso");
+    this.router.navigate(['/funcionario']);
   }
 
 
@@ -87,8 +87,8 @@ export class AuthServiceService {
     this.isLoggedUsuario = false;
     localStorage.removeItem('token');
     localStorage.removeItem('name');
-    alert("Usuário deslogado com sucesso")
-    this.router.navigate(['login']);
+    alert("Usuário deslogado com sucesso");
+    this.router.navigate(['/login']);
   }
 
   isLoggedIn(): boolean {
