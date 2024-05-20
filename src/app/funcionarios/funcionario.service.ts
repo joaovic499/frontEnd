@@ -14,13 +14,11 @@ export class FuncionarioService {
     return this.http.get<Funcionario[]>('http://localhost:3001/funcionarios');
   }
 
-  trocarSenha(codigo: string, senhaAtual: string, novaSenha: string): Observable<Funcionario[]> {
+  trocarSenha(codigo: string, senhaAtual: string, novaSenha: string): Observable<any> {
     const url = `http://localhost:3001/trocar-senha/${codigo}`;
     const body = { senhaAtual, novaSenha }; // Agrupando as senhas em um objeto
-    return this.http.put<Funcionario[]>(url, body);
+    return this.http.put<any>(url, body);
   }
-
-
 
   create(data: Funcionario) {
     return this.http.post('http://localhost:3001/register', data);

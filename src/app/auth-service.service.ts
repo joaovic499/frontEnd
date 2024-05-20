@@ -57,6 +57,7 @@ export class AuthServiceService {
             this.isLoggedFuncionario = true;
             localStorage.setItem('tokenFuncionario', tokenFuncionario);
             localStorage.setItem('nome', nome);
+            localStorage.setItem('codigoFuncionario', codigo);
             return true;
           } else {
             this.isLoggedFuncionario = false;
@@ -78,6 +79,7 @@ export class AuthServiceService {
   logoutFuncionario(): void {
     this.isLoggedFuncionario = false;
     localStorage.removeItem('tokenFuncionario');
+    localStorage.removeItem('codigoFuncionario')
     alert("Funcionario deslogado com sucesso");
     this.router.navigate(['/funcionario']);
   }
@@ -114,6 +116,11 @@ export class AuthServiceService {
   getNomeFuncionario(): string {
     const nome = localStorage.getItem('nome');
     return nome !== null ? nome: '';
+  }
+
+  getCodigoFuncionario(): string {
+    const codigo = localStorage.getItem('codigoFuncionario')
+    return codigo !== null ? codigo : '';
   }
 
   isFuncionario(): boolean {

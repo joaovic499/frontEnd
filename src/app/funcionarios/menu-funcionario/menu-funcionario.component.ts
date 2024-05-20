@@ -14,7 +14,9 @@ import { ModalSenhaComponent } from '../modal-senha/modal-senha.component';
 })
 export class MenuFuncionarioComponent implements OnInit{
   codigoFuncionario: string
-  constructor(private authService: AuthServiceService, private dialog: MatDialog ) { }
+  constructor(private authService: AuthServiceService, private dialog: MatDialog ) {
+    this.codigoFuncionario = this.authService.getCodigoFuncionario();
+   }
 
 
   ngOnInit(): void {
@@ -28,7 +30,7 @@ export class MenuFuncionarioComponent implements OnInit{
     const dialogRef = this.dialog.open(ModalSenhaComponent, {
       width: '700px',
       height: '330px',
-      data: {codigo: codigoFuncionario}
+      data: {codigo: this.codigoFuncionario}
 
   });
 
