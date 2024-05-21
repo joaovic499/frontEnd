@@ -31,6 +31,7 @@ import { FuncionariosHomeComponent } from './funcionarios/funcionarios-home/func
 import { MenuFuncionarioComponent } from './funcionarios/menu-funcionario/menu-funcionario.component';
 import { TimerFuncionarioComponent } from './funcionarios/timer-funcionario/timer-funcionario.component';
 import { ModalSenhaComponent } from './funcionarios/modal-senha/modal-senha.component';
+import { TrocarSenhaUsuarioComponent } from './components/trocar-senha-usuario/trocar-senha-usuario.component';
 
 
 
@@ -55,6 +56,7 @@ import { ModalSenhaComponent } from './funcionarios/modal-senha/modal-senha.comp
     MenuFuncionarioComponent,
     TimerFuncionarioComponent,
     ModalSenhaComponent,
+    TrocarSenhaUsuarioComponent,
   ],
   imports: [
     BrowserModule,

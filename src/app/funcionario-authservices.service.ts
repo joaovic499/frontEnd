@@ -13,7 +13,8 @@ export class FuncionarioAuthservicesService implements CanActivate {
     if (this.authService.isFuncionario() && this.authService.isTokenFuncionarioValid()) {
       return true;
     } else {
-      this.router.navigate(['/funcionario']);
+      alert('Sessão expirada!')
+      this.authService.logoutFuncionario();
       return false;
     }
   }
