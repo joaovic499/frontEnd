@@ -15,7 +15,6 @@ export class ModalViewUserComponent {
   @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.funcionarioData = data
-    console.log('Dados do usuario', this.funcionarioData);
   }
 
 

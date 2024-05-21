@@ -4,7 +4,7 @@
 <h1 class="titulo">Troque sua senha</h1>
 <h2 class="subtitulo "> Digite a sua senha atual para poder troca-la </h2>
 
-<form [formGroup]="formTrocarSenhaUsuario" (ngSubmit)="onSubmit()">
+<form class="row" [formGroup]="formTrocarSenhaUsuario" (ngSubmit)="onSubmit()">
   <div class="col-12 col-md-6 md-2">
   <mat-form-field class="example-full-width w-100">
     <input matInput type="password" formControlName="senhaAtual" placeholder="Senha atual">
