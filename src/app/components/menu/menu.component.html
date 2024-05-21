@@ -7,6 +7,8 @@
     <li routerLink="/cadastro/funcionario"> <mat-icon>person_add</mat-icon>Cadastrar funcionarios</li>
     <li routerLink="http://itmil.com.br/"> <mat-icon>timer</mat-icon>Registros de Pontos</li>
     <li routerLink="http://itmil.com.br/"> <mat-icon>feed</mat-icon>Sobre nós</li>
-    <a href="" target="_blank"><li><mat-icon>lock_reset</mat-icon>Trocar Senha</li></a>
+    <li (click)="openTrocarSenhaModal()">
+    <mat-icon class="trocar-senha-usuario">lock_reset</mat-icon>Trocar Senha
+    </li>
     <li routerLink="/login" class="Logout" (click)="logout()"><mat-icon>logout</mat-icon>Sair</li>
   </ul>
