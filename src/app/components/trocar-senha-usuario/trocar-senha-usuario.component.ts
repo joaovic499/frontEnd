@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { UsuarioAuthservicesService } from '../../usuario-authservices.service';
 import { AuthServiceService } from '../../auth-service.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-trocar-senha-usuario',
@@ -17,10 +18,11 @@ export class TrocarSenhaUsuarioComponent {
   constructor(private formBuilder: FormBuilder,
     private usuarioService: AuthServiceService,
     private dialog: MatDialog,
+    private cookieService: CookieService,
     private dialogRef: MatDialogRef<TrocarSenhaUsuarioComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {token: string}) {
 
-      this.tokenUsuario = localStorage.getItem('token') || '';
+      this.tokenUsuario = cookieService.get('token') || '';
 
       this.formTrocarSenhaUsuario = this.formBuilder.group({
         senhaAtual: ['', Validators.required],

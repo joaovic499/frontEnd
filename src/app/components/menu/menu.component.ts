@@ -2,6 +2,7 @@ import { TrocarSenhaUsuarioComponent } from './../trocar-senha-usuario/trocar-se
 import { Component } from '@angular/core';
 import { AuthServiceService } from '../../auth-service.service';
 import { MatDialog } from '@angular/material/dialog';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-menu',
@@ -12,12 +13,13 @@ export class MenuComponent  {
 
 
   token: string;
-  constructor(private authService: AuthServiceService, private dialog: MatDialog ) {
-    this.token = localStorage.getItem('token') || '';
+  constructor(private authService: AuthServiceService, private dialog: MatDialog, private cookieService: CookieService ) {
+    this.token = this.cookieService.get('token') || '';
    }
 
 
    openTrocarSenhaModal():void {
+    console.log(this.token)
     const dialogRef = this.dialog.open(TrocarSenhaUsuarioComponent, {
       width: '700px',
       height: '330px',

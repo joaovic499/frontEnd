@@ -13,8 +13,8 @@ export class UsuarioAuthservicesService implements CanActivate {
     if (this.authService.isUsuario() && this.authService.isTokenUsuarioValid()) {
       return true;
     } else {
-      alert('Sessão expirada!')
       this.authService.logoutUsuario();
+      alert('Sessão expirada!')
       return false;
     }
   }

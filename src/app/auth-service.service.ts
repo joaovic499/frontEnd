@@ -44,7 +44,7 @@ export class AuthServiceService {
         const name = response.name;
           if (token){
             this.isLoggedUsuario = true;
-            this.cookieService.set('token', token)
+            this.cookieService.set('token', token);
             this.cookieService.set('name', name);
             return true;
           } else {
@@ -67,6 +67,8 @@ export class AuthServiceService {
       novaSenha
     };
 
+    this.cookieService.get('token')
+
     return this.http.post('http://localhost:3000/auth/autenticate/changePassword', body, { headers });
   }
 
@@ -78,7 +80,7 @@ export class AuthServiceService {
         const nome = response.nome;
           if (tokenFuncionario) {
             this.isLoggedFuncionario = true;
-            this.cookieService.set('tokenFuncionario', tokenFuncionario)
+            this.cookieService.set('tokenFuncionario', response.tokenFuncionario)
             this.cookieService.set('nome', nome);
             this.cookieService.set('codigoFuncionario', codigo);
             return true;
@@ -134,21 +136,21 @@ export class AuthServiceService {
   isTokenUsuarioValid(): boolean {
     const token = this.cookieService.get('token');
 
+    // Verifica se o token existe
     if (!token) {
+      console.log('Token não encontrado.');
       return false;
     }
 
-    if (this.isTokenExpired(token)){
-      return false;
-    }
-
-    const storedToken = this.cookieService.get('token');
-    if (storedToken !== token){
+    // Verifica se o token está expirado
+    if (this.isTokenExpired(token)) {
+      console.log('Token está expirado.');
       return false;
     }
 
     return true;
   }
+
 
   getNomeUsuario(): string {
     const nome = this.cookieService.get('name');
