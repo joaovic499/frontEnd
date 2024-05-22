@@ -26,6 +26,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "bootstrap": "^5.2.3",
     "jwt-decode": "^4.0.0",
+    "ngx-cookie-service": "^17.1.0",
     "ngx-highlight-js": "^17.0.0",
     "ngx-highlightjs": "^11.0.0-beta.1",
     "rxjs": "~7.8.0",

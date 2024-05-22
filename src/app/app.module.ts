@@ -32,6 +32,7 @@ import { MenuFuncionarioComponent } from './funcionarios/menu-funcionario/menu-f
 import { TimerFuncionarioComponent } from './funcionarios/timer-funcionario/timer-funcionario.component';
 import { ModalSenhaComponent } from './funcionarios/modal-senha/modal-senha.component';
 import { TrocarSenhaUsuarioComponent } from './components/trocar-senha-usuario/trocar-senha-usuario.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -76,9 +77,7 @@ import { TrocarSenhaUsuarioComponent } from './components/trocar-senha-usuario/t
     MatPaginatorModule,
     MatDialogModule,
   ],
-  providers: [
-    provideAnimationsAsync()
-  ],
+  providers:[CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

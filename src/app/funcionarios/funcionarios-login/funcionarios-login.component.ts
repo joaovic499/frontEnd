@@ -12,7 +12,11 @@ import { Router } from '@angular/router';
 export class FuncionariosLoginComponent implements OnInit {
   public loginForm!: FormGroup
 
-  constructor (private formBuilder : FormBuilder, private htttp: HttpClient, private router: Router, private authService: AuthServiceService ) {}
+  constructor (private formBuilder : FormBuilder,
+  private htttp: HttpClient,
+  private router: Router,
+  private authService: AuthServiceService,
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({

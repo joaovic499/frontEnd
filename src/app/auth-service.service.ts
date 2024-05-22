@@ -3,6 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Observable, interval, map } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class AuthServiceService {
   private isLoggedUsuario: boolean = false;
   private isLoggedFuncionario: boolean = false;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) {
 
 }
   private isTokenExpired(token: string): boolean {
@@ -43,8 +44,8 @@ export class AuthServiceService {
         const name = response.name;
           if (token){
             this.isLoggedUsuario = true;
-            localStorage.setItem('token', token);
-            localStorage.setItem('name', name);
+            this.cookieService.set('token', token)
+            this.cookieService.set('name', name);
             return true;
           } else {
             this.isLoggedUsuario = false;
@@ -77,9 +78,9 @@ export class AuthServiceService {
         const nome = response.nome;
           if (tokenFuncionario) {
             this.isLoggedFuncionario = true;
-            localStorage.setItem('tokenFuncionario', tokenFuncionario);
-            localStorage.setItem('nome', nome);
-            localStorage.setItem('codigoFuncionario', codigo);
+            this.cookieService.set('tokenFuncionario', tokenFuncionario)
+            this.cookieService.set('nome', nome);
+            this.cookieService.set('codigoFuncionario', codigo);
             return true;
           } else {
             this.isLoggedFuncionario = false;
@@ -99,27 +100,27 @@ export class AuthServiceService {
 
   logoutFuncionario(): void {
     this.isLoggedFuncionario = false;
-    localStorage.removeItem('tokenFuncionario');
-    localStorage.removeItem('codigoFuncionario');
-    localStorage.removeItem('nome');
+    this.cookieService.delete('tokenFuncionario');
+    this.cookieService.delete('codigoFuncionario');
+    this.cookieService.delete('nome');
     alert("Funcionario deslogado com sucesso");
     this.router.navigate(['/funcionario']);
   }
 
   logoutUsuario(): void {
     this.isLoggedUsuario = false;
-    localStorage.removeItem('token');
-    localStorage.removeItem('name');
+    this.cookieService.delete('token');
+    this.cookieService.delete('name');
     alert("Usuário deslogado com sucesso");
     this.router.navigate(['/login']);
   }
 
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('token') || !!localStorage.getItem('tokenFuncionario');
+    return !!this.cookieService.get('token') || !!this.cookieService.get('tokenFuncionario');
   }
 
   isTokenFuncionarioValid(): boolean {
-    const tokenFuncionario = localStorage.getItem('tokenFuncionario');
+    const tokenFuncionario = this.cookieService.get('tokenFuncionario');
 
     if (!tokenFuncionario) {
       return false;
@@ -131,7 +132,7 @@ export class AuthServiceService {
   }
 
   isTokenUsuarioValid(): boolean {
-    const token = localStorage.getItem('token');
+    const token = this.cookieService.get('token');
 
     if (!token) {
       return false;
@@ -141,7 +142,7 @@ export class AuthServiceService {
       return false;
     }
 
-    const storedToken = localStorage.getItem('token');
+    const storedToken = this.cookieService.get('token');
     if (storedToken !== token){
       return false;
     }
@@ -150,25 +151,25 @@ export class AuthServiceService {
   }
 
   getNomeUsuario(): string {
-    const nome = localStorage.getItem('name');
+    const nome = this.cookieService.get('name');
     return nome !== null ? nome : '';
   }
 
   getNomeFuncionario(): string {
-    const nome = localStorage.getItem('nome');
+    const nome = this.cookieService.get('nome');
     return nome !== null ? nome: '';
   }
 
   getCodigoFuncionario(): string {
-    const codigo = localStorage.getItem('codigoFuncionario')
+    const codigo = this.cookieService.get('codigoFuncionario')
     return codigo !== null ? codigo : '';
   }
 
   isFuncionario(): boolean {
-    return !!localStorage.getItem('tokenFuncionario');
+    return !!this.cookieService.get('tokenFuncionario');
   }
 
   isUsuario(): boolean {
-    return !!localStorage.getItem('token')
+    return !!this.cookieService.get('token')
   }
 }
