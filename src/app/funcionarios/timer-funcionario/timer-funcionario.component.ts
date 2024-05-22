@@ -1,61 +1,88 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import moment from 'moment';
+import { Tipo } from './tipo.enum';
+
+
+declare var navigator: any;
 
 @Component({
   selector: 'app-timer-funcionario',
   templateUrl: './timer-funcionario.component.html',
   styleUrl: './timer-funcionario.component.scss'
 })
-export class TimerFuncionarioComponent {
+export class TimerFuncionarioComponent implements OnInit {
+  private dataAtualEn: string;
+  dataAtual: string;
+  geoLocation: string;
+  ultimoTipoLancado: string;
 
-  ms: any = '0' + 0;
-  sec: any = '0' + 0;
-  min: any = '0' + 0;
-  hr: any = '0' + 0;
+  constructor(
+    private snackBar: MatSnackBar,
+    private router: Router)  {}
 
-  startTimer: any;
-  running: boolean;
+  ngOnInit(): void {
+    this.dataAtual = moment().format('DD/MM/YYYY HH:mm:ss');
+    this.dataAtualEn = moment().format('YYYY-MM--DD HH:mm:ss');
+    this.obterGeoLocation();
+    this.ultimoTipoLancado = '';
+    this.obterUltimoLancamento();
+  }
 
-  start(): void {
-    if(!this.running) {
-      this.running = true;
-      this.startTimer = setInterval(() => {
-        this.ms++;
-        this.ms = this.ms < 10 ? '0' + this.ms : this.ms;
-
-        if(this.ms === 100) {
-          this.sec++;
-          this.sec = this.sec < 10 ? '0' + this.sec : this.sec;
-          this.ms = '0' + 0;
-        }
-
-      if(this.sec === 60) {
-        this.min++;
-        this.min = this.min < 10 ? '0' + this.min : this.min;
-        this.sec = '0' + 0;
-      }
-      if(this.min === 60) {
-        this.hr++;
-        this.hr = this.hr < 10 ? '0' + this.hr : this.hr;
-        this.min = '0' + 0;
-      }
-      }, 10);
-    } else{
-      this.stop();
-
+  obterGeoLocation(): void {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position: { coords: { latitude: any; longitude: any; }; }) => {
+        this.geoLocation = `${position.coords.latitude},${position.coords.longitude}`;
+      });
     }
+}
+  iniciarTrabalho(){
+    this.cadastrar(Tipo.INICIO_TRABALHO);
   }
 
-  stop(): void {
-    clearInterval(this.startTimer);
-    this.running = false;
-
+  terminarTrabalho() {
+    this.cadastrar(Tipo.TERMINO_TRABALHO);
   }
 
-  reset(): void {
-    clearInterval(this.startTimer);
-    this.running = false;
-    this.hr = this.min = this.sec = this.ms = '0' + 0;
+  iniciarAlmoco() {
+    this.cadastrar(Tipo.INICIO_ALMOCO);
+  }
 
+  terminarAlmoco() {
+    this.cadastrar(Tipo.TERMINO_ALMOCO)
+  }
+
+  obterUltimoLancamento() {
+    this.ultimoTipoLancado = '';
+  }
+
+  cadastrar(tipo: Tipo) {
+    alert(`Tipo: ${tipo}, dataAtualEn: ${this.dataAtualEn},
+      geolocation: ${this.geoLocation}`);
+  }
+
+  obterUrlMapa(): string {
+    return "https://www.google.com/maps/search/?api=1&query=" +
+      this.geoLocation;
+  }
+
+  exibirInicioTrabalho(): boolean {
+    return this.ultimoTipoLancado == '' ||
+      this.ultimoTipoLancado == Tipo.TERMINO_TRABALHO;
+  }
+
+  exibirTerminoTrabalho(): boolean {
+    return this.ultimoTipoLancado == Tipo.INICIO_TRABALHO ||
+      this.ultimoTipoLancado == Tipo.TERMINO_ALMOCO;
+  }
+
+  exibirInicioAlmoco(): boolean {
+    return this.ultimoTipoLancado == Tipo.INICIO_TRABALHO
+  }
+
+  exibirTerminoAlmoco(): boolean {
+    return this.ultimoTipoLancado == Tipo.TERMINO_ALMOCO;
   }
 
 }

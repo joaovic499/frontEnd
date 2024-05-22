@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -33,7 +33,10 @@ import { TimerFuncionarioComponent } from './funcionarios/timer-funcionario/time
 import { ModalSenhaComponent } from './funcionarios/modal-senha/modal-senha.component';
 import { TrocarSenhaUsuarioComponent } from './components/trocar-senha-usuario/trocar-senha-usuario.component';
 import { CookieService } from 'ngx-cookie-service';
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -61,6 +64,7 @@ import { CookieService } from 'ngx-cookie-service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
@@ -76,6 +80,11 @@ import { CookieService } from 'ngx-cookie-service';
     MatSortModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatButtonModule,
+    MatCardModule,
+    MatSnackBarModule,
+    MatListModule
+
   ],
   providers:[CookieService],
   bootstrap: [AppComponent]

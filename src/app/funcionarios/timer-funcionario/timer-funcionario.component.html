@@ -1,21 +1,39 @@
 <app-menu-funcionario></app-menu-funcionario>
 
   <div class="container-center">
-  <div class="sw-container">
-    <div class="stopwatch">
-      <span>{{hr}} : </span>
-      <span>{{min}} : </span>
-      <span>{{sec}} : </span>
-      <span>{{ms}}</span>
+    <div>
+      <mat-list>
+        <h2>Controle de Pontos</h2>
+        <mat-list-item>
+          <a mat-raised-button color="primary" routerLink="/funcionario/listagem">
+            Ver Lançamentos
+          </a>
+        </mat-list-item>
+        <mat-list-item>
+          <span style="color: black;"><strong>Data:</strong>&nbsp;{{ dataAtual }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span style="color: black;"><strong>Localização:</strong>&nbsp;{{geoLocation}}</span>
+          &nbsp;
+          <a target="_blank" *ngIf="geoLocation"
+            [href]="obterUrlMapa()">abrir mapa</a>
+        </mat-list-item>
+          <mat-list-item *ngIf="exibirInicioTrabalho()">
+              <button mat-raised-button color="primary" (click)="iniciarTrabalho()"> Iniciar Trabalho
+          </button>
+        </mat-list-item>
+        <mat-list-item *ngIf="exibirInicioAlmoco()">
+          <button mat-raised-button color="primary" (click)="iniciarAlmoco()"> Iniciar Almoço
+      </button>
+      <mat-list-item *ngIf="exibirTerminoAlmoco()">
+        <button mat-raised-button color="primary" (click)="terminarAlmoco()"> Terminar Almoço
+    </button>
+    <mat-list-item *ngIf="exibirTerminoTrabalho()">
+      <button mat-raised-button color="primary" (click)="terminarTrabalho()"> Terminar Trabalho
+  </button>
+</mat-list-item>
+  </mat-list-item>
+    </mat-list-item>
+      </mat-list>
     </div>
-  <div class="button-container">
-        <button mat-icon-button class="btn-play-pause ripple" (click)="start()">
-        <mat-icon class ="fas fa-play" *ngIf="!running">play_arrow</mat-icon>
-        <mat-icon class ="fas fa-play" *ngIf="running">pause</mat-icon>
-    </button>
-    <button class="ripple" (click)="reset()">
-      <mat-icon>refresh</mat-icon>
-    </button>
-  </div>
-  </div>
 </div>
