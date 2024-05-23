@@ -37,6 +37,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatListModule} from '@angular/material/list';
+import { LancamentoPontoComponent } from './funcionarios/timer-funcionario/lancamento-ponto/lancamento-ponto.component';
 
 
 
@@ -61,6 +62,7 @@ import {MatListModule} from '@angular/material/list';
     TimerFuncionarioComponent,
     ModalSenhaComponent,
     TrocarSenhaUsuarioComponent,
+    LancamentoPontoComponent,
   ],
   imports: [
     BrowserModule,

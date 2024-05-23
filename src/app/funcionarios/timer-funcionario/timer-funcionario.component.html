@@ -1,39 +1,32 @@
 <app-menu-funcionario></app-menu-funcionario>
 
-  <div class="container-center">
-    <div>
-      <mat-list>
-        <h2>Controle de Pontos</h2>
-        <mat-list-item>
-          <a mat-raised-button color="primary" routerLink="/funcionario/listagem">
-            Ver Lançamentos
-          </a>
-        </mat-list-item>
-        <mat-list-item>
-          <span style="color: black;"><strong>Data:</strong>&nbsp;{{ dataAtual }}</span>
-        </mat-list-item>
-        <mat-list-item>
-          <span style="color: black;"><strong>Localização:</strong>&nbsp;{{geoLocation}}</span>
-          &nbsp;
-          <a target="_blank" *ngIf="geoLocation"
-            [href]="obterUrlMapa()">abrir mapa</a>
-        </mat-list-item>
-          <mat-list-item *ngIf="exibirInicioTrabalho()">
-              <button mat-raised-button color="primary" (click)="iniciarTrabalho()"> Iniciar Trabalho
-          </button>
-        </mat-list-item>
-        <mat-list-item *ngIf="exibirInicioAlmoco()">
-          <button mat-raised-button color="primary" (click)="iniciarAlmoco()"> Iniciar Almoço
-      </button>
-      <mat-list-item *ngIf="exibirTerminoAlmoco()">
-        <button mat-raised-button color="primary" (click)="terminarAlmoco()"> Terminar Almoço
-    </button>
-    <mat-list-item *ngIf="exibirTerminoTrabalho()">
-      <button mat-raised-button color="primary" (click)="terminarTrabalho()"> Terminar Trabalho
-  </button>
-</mat-list-item>
-  </mat-list-item>
-    </mat-list-item>
-      </mat-list>
-    </div>
+<div class="container-center">
+  <div>
+    <mat-list>
+      <h2>Controle de Pontos</h2>
+      <mat-list-item>
+        <a mat-raised-button color="primary" routerLink="/funcionario/timer/lancamento">
+          Ver Lançamentos
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <span style="color: black;"><strong>Data:</strong>&nbsp;{{ dataAtual }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span style="color: black;"><strong>Localização:</strong>&nbsp;{{geoLocation}}</span>
+        &nbsp;
+        <a target="_blank" *ngIf="geoLocation" [href]="obterUrlMapa()">abrir mapa</a>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-raised-button color="primary" (click)="iniciarTrabalho()" *ngIf="exibirInicioTrabalho()"> Iniciar Trabalho
+        </button>
+        <button mat-raised-button color="primary" (click)="iniciarAlmoco()" *ngIf="exibirInicioAlmoco()"> Iniciar Almoço
+        </button>
+        <button mat-raised-button color="primary" (click)="terminarAlmoco()" *ngIf="exibirTerminoAlmoco()"> Terminar Almoço
+        </button>
+        <button mat-raised-button color="primary" (click)="terminarTrabalho()" *ngIf="exibirTerminoTrabalho()"> Terminar Trabalho
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </div>
 </div>

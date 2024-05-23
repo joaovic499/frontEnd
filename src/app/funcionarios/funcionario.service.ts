@@ -1,3 +1,4 @@
+import { GeolocationService } from '@ng-web-apis/geolocation';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Funcionario } from './funcionario';
@@ -34,6 +35,27 @@ export class FuncionarioService {
 
   delete(codigo: String){
     return this.http.delete<Funcionario>(`http://localhost:3001/delete/${codigo}`)
+  }
+
+  iniciarTrabalho(codigoFuncionario: string, geoLocation: string): Observable<any> {
+    return this.http.post<any>('http://localhost:3001/funcionario/iniciar-trabalho', { codigoFuncionario, geoLocation });
+  }
+
+  terminarTrabalho(codigoFuncionario: string, geoLocation: string): Observable<any> {
+    return this.http.post<any>('http://localhost:3001/funcionario/terminar-trabalho', { codigoFuncionario, geoLocation });
+  }
+
+  iniciarAlmoco(codigoFuncionario: string, geoLocation: string): Observable<any> {
+    return this.http.post<any>('http://localhost:3001/funcionario/iniciar-almoco', { codigoFuncionario, geoLocation });
+  }
+
+  terminarAlmoco(codigoFuncionario: string, geoLocation: string): Observable<any> {
+    return this.http.post<any>('http://localhost:3001/funcionario/terminar-almoco', { codigoFuncionario, geoLocation });
+  }
+
+  getPontos(codigo: string): Observable<any>{
+    return this.http.get<any>(`http://localhost:3001/funcionario/${codigo}/pontos`);
+
   }
 
 
