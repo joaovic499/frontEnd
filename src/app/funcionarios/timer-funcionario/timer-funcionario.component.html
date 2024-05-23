@@ -18,7 +18,7 @@
         <a target="_blank" *ngIf="geoLocation" [href]="obterUrlMapa()">abrir mapa</a>
       </mat-list-item>
       <mat-list-item>
-        <button mat-raised-button color="primary" (click)="iniciarTrabalho()" *ngIf="exibirInicioTrabalho()"> Iniciar Trabalho
+        <button mat-raised-button color="primary" (click)="iniciarTrabalho()" *ngIf="exibirInicioTrabalho() && mapaRenderizado"> Iniciar Trabalho
         </button>
         <button mat-raised-button color="primary" (click)="iniciarAlmoco()" *ngIf="exibirInicioAlmoco()"> Iniciar Almoço
         </button>

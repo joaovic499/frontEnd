@@ -19,24 +19,23 @@
       <div class="mat-elevation-z8">
         <table class="mat-elevation-z8" mat-table [dataSource]="dataSource" matSort>
 
-          <ng-container matColumnDef="codigo">
-            <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Código </th>
-            <td mat-cell class="td-table" *matCellDef="let row"> {{row.codigo}} </td>
+          <ng-container matColumnDef="nome">
+            <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Nome: </th>
+            <td mat-cell class="td-table" *matCellDef="let row"> {{row.nome}} </td>
           </ng-container>
 
-
           <ng-container matColumnDef="cargo">
-            <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Cargo </th>
+            <th class="th-table"  mat-header-cell *matHeaderCellDef mat-sort-header> Cargo: </th>
             <td mat-cell class="td-table" *matCellDef="let row"> {{row.cargo}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="data">
-            <th class="th-table"  mat-header-cell *matHeaderCellDef mat-sort-header> Data/Horário </th>
-            <td mat-cell class="td-table" *matCellDef="let row"> {{row.data}} </td>
+          <ng-container matColumnDef="dataHora">
+            <th class="th-table"  mat-header-cell *matHeaderCellDef mat-sort-header> Data/Hora </th>
+            <td mat-cell class="td-table" *matCellDef="let row"> {{row.dataHora}} </td>
           </ng-container>
 
           <ng-container matColumnDef="tipo">
-            <th class="th-table"  mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+            <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
             <td mat-cell class="td-table" *matCellDef="let row"> {{row.tipo}} </td>
           </ng-container>
 

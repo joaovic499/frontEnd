@@ -53,10 +53,10 @@ export class FuncionarioService {
     return this.http.post<any>('http://localhost:3001/funcionario/terminar-almoco', { codigoFuncionario, geoLocation });
   }
 
-  getPontos(codigo: string): Observable<any>{
-    return this.http.get<any>(`http://localhost:3001/funcionario/${codigo}/pontos`);
-
+  getPontos(codigoFuncionario: string): Observable<any> {
+    return this.http.get<any>('http://localhost:3001/funcionario/pontos', { params: { codigoFuncionario } });
   }
+
 
 
 }

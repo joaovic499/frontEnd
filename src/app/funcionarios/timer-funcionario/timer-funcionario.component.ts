@@ -23,6 +23,7 @@ export class TimerFuncionarioComponent implements OnInit {
   almocoIniciado: boolean = false;
   pontos: any[] = [];
   codigo: string;
+  mapaRenderizado: boolean = false;
 
   constructor(
     private snackBar: MatSnackBar,
@@ -42,13 +43,14 @@ export class TimerFuncionarioComponent implements OnInit {
     this.obterGeoLocation();
     this.ultimoTipoLancado = '';
     this.obterUltimoLancamento();
-    this.getPontos();
   }
 
   obterGeoLocation(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: { coords: { latitude: any; longitude: any; }; }) => {
         this.geoLocation = `${position.coords.latitude},${position.coords.longitude}`;
+
+        this.mapaOn();
       });
     }
 }
@@ -117,6 +119,10 @@ export class TimerFuncionarioComponent implements OnInit {
   obterUrlMapa(): string {
     return "https://www.google.com/maps/search/?api=1&query=" +
       this.geoLocation;
+  }
+
+  mapaOn() {
+    this.mapaRenderizado = true;
   }
 
   exibirInicioTrabalho(): boolean {
