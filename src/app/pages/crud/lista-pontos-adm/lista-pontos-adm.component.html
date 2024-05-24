@@ -11,7 +11,7 @@
 
   <div class="row mt-2">
     <div class="col-12">
-      <app-button class="float-end" textButton=" + Cadastrar"></app-button>
+      <app-button class="float-end" textButton=" + Cadastrar Ponto"></app-button>
 
       <mat-form-field class="custom-mat-form-field">
         <mat-label>Busque por Código </mat-label>
@@ -49,8 +49,8 @@
             <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
             <td mat-cell class="td-table" *matCellDef="let row">
               <mat-icon class="icone-tabela" (click)="openModalViewPontos(row)">visibility</mat-icon>
-              <mat-icon class="icone-tabela">edit</mat-icon>
-              <mat-icon mat-icon class="icone-tabela">delete</mat-icon>
+              <mat-icon class="icone-tabela" (click)="openModalEditPonto(row)">edit</mat-icon>
+              <mat-icon class="icone-tabela" (click)="deletePonto(row.codigo, row.tipo)">delete</mat-icon>
             </td>
           </ng-container>
 

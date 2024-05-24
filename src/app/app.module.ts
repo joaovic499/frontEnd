@@ -39,9 +39,7 @@ import {MatListModule} from '@angular/material/list';
 import { LancamentoPontoComponent } from './funcionarios/timer-funcionario/lancamento-ponto/lancamento-ponto.component';
 import { ListaPontosAdmComponent } from './pages/crud/lista-pontos-adm/lista-pontos-adm.component';
 import { ModalViewPontosComponent } from './pages/crud/lista-pontos-adm/modal-view-pontos/modal-view-pontos.component';
-
-
-
+import { ModalFormPontosComponent } from './pages/crud/lista-pontos-adm/modal-form-pontos/modal-form-pontos.component';
 
 
 @NgModule({
@@ -65,6 +63,7 @@ import { ModalViewPontosComponent } from './pages/crud/lista-pontos-adm/modal-vi
     LancamentoPontoComponent,
     ListaPontosAdmComponent,
     ModalViewPontosComponent,
+    ModalFormPontosComponent,
   ],
   imports: [
     BrowserModule,

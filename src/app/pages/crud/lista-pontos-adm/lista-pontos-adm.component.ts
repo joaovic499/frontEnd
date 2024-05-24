@@ -1,3 +1,4 @@
+import { Tipo } from './../../../funcionarios/timer-funcionario/tipo.enum';
 import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -7,6 +8,7 @@ import { FuncionarioService } from '../../../funcionarios/funcionario.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ModalViewPontosComponent } from './modal-view-pontos/modal-view-pontos.component';
 import { Funcionario } from '../../../funcionarios/funcionario';
+import { ModalFormPontosComponent } from './modal-form-pontos/modal-form-pontos.component';
 
 @Component({
   selector: 'app-lista-pontos-adm',
@@ -23,6 +25,9 @@ export class ListaPontosAdmComponent {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  novoRegistro: any;
+  codigoFuncionario: string;
+  tipo: string;
 
 
   constructor(public dialog: MatDialog, private funcionarioService: FuncionarioService, private cookieService: CookieService) {}
@@ -87,12 +92,27 @@ export class ListaPontosAdmComponent {
       width: '700px',
       height: '330px',
       data: row
-
     })
-
   }
 
+  openModalEditPonto(row: Funcionario) {
+    this.dialog.open(ModalFormPontosComponent, {
+      width: '700px',
+      height: '330px',
+      data: row
+    }).afterClosed().subscribe(() => this.mostrarPontos());
+  }
 
+  deletePonto(codigoFuncionario: string, tipoPonto: string) {
+    this.funcionarioService.deletePonto(codigoFuncionario, tipoPonto).subscribe(
+      () => {
+        // Remova a linha da fonte de dados local
+        this.dataSource.data = this.dataSource.data.filter((ponto: any) => ponto.codigo !== codigoFuncionario || ponto.tipo !== tipoPonto);
+        alert('Ponto deletado com sucesso')
+      },
+      (error) => {
+        console.error('Erro ao excluir ponto de registro:', error);
+      }
+    );
+  }
 }
-
-

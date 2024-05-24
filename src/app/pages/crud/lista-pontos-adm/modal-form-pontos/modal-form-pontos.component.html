@@ -1,0 +1,53 @@
+<div class = "container-fluid p-3">
+  <mat-icon class="float-end hover" (click)="closeModal()">close</mat-icon>
+
+  <h1 class="titulo" *ngIf="editFuncionario">Editar Funcionários</h1>
+  <h1 class="titulo" *ngIf="!editFuncionario">Cadastrar Funcionários</h1>
+  <h2 class="subtitulo "> Preencha o formulario para salvar o funcionário </h2>
+
+
+  <form class="row" [formGroup]="formFuncionario">
+    <div class="col-12 col-md-6 md-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Nome</mat-label>
+        <input type="text" matInput formControlName="nome" placeholder="Digite seu nome">
+        @if (formFuncionario.controls['nome'].invalid) {
+          <mat-error>Por favor digite um nome válido </mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-6 md-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Data/Hora</mat-label>
+        <input type="datetime" matInput formControlName="dataHora" placeholder="Digite a data e horario">
+        @if (formFuncionario.controls['dataHora'].invalid) {
+          <mat-error>Por favor digite uma data válida </mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-6 md-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Tipo</mat-label>
+        <input type="text" matInput formControlName="tipo" placeholder="Digite o tipo atual">
+        @if (formFuncionario.controls['tipo'].invalid) {
+          <mat-error>Por favor digite o tipo válido </mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-6 md-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Localizacao:</mat-label>
+        <input type="text" matInput formControlName="localizacao" placeholder="Digite a localizacao atual">
+      </mat-form-field>
+    </div>
+
+    <div class="col-12">
+      <button class="botao-primario float-end" [disabled]="editFuncionario ? false : !formFuncionario.valid || (formFuncionario.get('confirmarSenha')?.value !== formFuncionario.get('senha')?.value)" (click)="saveFuncionario()">Salvar Funcionario</button>
+    </div>
+
+  </form>
+</div>
+

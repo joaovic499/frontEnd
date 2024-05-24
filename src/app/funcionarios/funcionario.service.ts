@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Funcionario } from './funcionario';
 import { Observable } from 'rxjs';
+import { Tipo } from './timer-funcionario/tipo.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +62,9 @@ export class FuncionarioService {
     return this.http.get<any>('http://localhost:3001/funcionario/pontos', { params: { codigoFuncionario } });
   }
 
-
-
+  deletePonto(codigoFuncionario: string, tipoPonto: string): Observable<any> {
+    const url = `http://localhost:3001/funcionario/${codigoFuncionario}/ponto/${tipoPonto}`;
+    return this.http.delete(url);
+  }
 }
+
