@@ -24,7 +24,6 @@ import { MatPaginatorModule} from '@angular/material/paginator';
 import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-user.component';
 import {MatDialogModule } from '@angular/material/dialog';
 import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-user.component';
-import { TimerComponent } from './pages/timer/timer.component';
 import { FuncionariosLoginComponent } from './funcionarios/funcionarios-login/funcionarios-login.component';
 import { FuncionariosRegistroComponent } from './funcionarios/funcionarios-registro/funcionarios-registro.component';
 import { FuncionariosHomeComponent } from './funcionarios/funcionarios-home/funcionarios-home.component';
@@ -38,6 +37,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatListModule} from '@angular/material/list';
 import { LancamentoPontoComponent } from './funcionarios/timer-funcionario/lancamento-ponto/lancamento-ponto.component';
+import { ListaPontosAdmComponent } from './pages/crud/lista-pontos-adm/lista-pontos-adm.component';
 
 
 
@@ -54,7 +54,6 @@ import { LancamentoPontoComponent } from './funcionarios/timer-funcionario/lanca
     CrudComponent,
     ModalViewUserComponent,
     ModalFormUserComponent,
-    TimerComponent,
     FuncionariosLoginComponent,
     FuncionariosRegistroComponent,
     FuncionariosHomeComponent,
@@ -63,6 +62,7 @@ import { LancamentoPontoComponent } from './funcionarios/timer-funcionario/lanca
     ModalSenhaComponent,
     TrocarSenhaUsuarioComponent,
     LancamentoPontoComponent,
+    ListaPontosAdmComponent,
   ],
   imports: [
     BrowserModule,

@@ -21,6 +21,10 @@ export class FuncionarioService {
     return this.http.put<any>(url, body);
   }
 
+  mostrarPontos(): Observable<Funcionario[]> {
+    return this.http.get<Funcionario[]>('http://localhost:3001/funcionario/all')
+  }
+
   create(data: Funcionario) {
     return this.http.post('http://localhost:3001/register', data);
   }

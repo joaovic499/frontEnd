@@ -36,7 +36,7 @@ export class FuncionariosRegistroComponent implements OnInit {
         tap(() => {
           alert("Funcionário registrado com Sucesso");
           this.registerFuncForm.reset();
-          this.router.navigate(['login']);
+          this.router.navigate(['funcionario']);
         }),
 
         catchError((error) => {

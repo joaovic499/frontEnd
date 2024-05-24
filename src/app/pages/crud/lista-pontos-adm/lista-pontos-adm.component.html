@@ -1,0 +1,69 @@
+<app-menu></app-menu>
+
+
+<div class="container-fluid pt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="titulo">Gerenciamento de pontos dos funcionarios</h1>
+      <h2 class="subtitulo">Gerencie os pontos, adicionando, editando o excluindo</h2>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-12">
+      <app-button class="float-end" textButton=" + Cadastrar"></app-button>
+
+      <mat-form-field class="custom-mat-form-field">
+        <mat-label>Busque por Código </mat-label>
+        <input class="filterbox" matInput (keyup)="applyFilter($event)" placeholder="Digite sua busca" #input>
+      </mat-form-field>
+      <div class="mat-elevation-z8">
+        <table class="mat-elevation-z8" mat-table [dataSource]="dataSource" matSort>
+
+          <ng-container matColumnDef="codigo">
+            <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Código: </th>
+            <td mat-cell class="td-table" *matCellDef="let row"> {{row.codigo}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="nome">
+            <th class="th-table"  mat-header-cell *matHeaderCellDef mat-sort-header> Nome: </th>
+            <td mat-cell class="td-table" *matCellDef="let row"> {{row.nome}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="dataHora">
+            <th class="th-table"  mat-header-cell *matHeaderCellDef mat-sort-header> Data/Hora </th>
+            <td mat-cell class="td-table" *matCellDef="let row"> {{row.dataHora}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="tipo">
+            <th class="th-table"  mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+            <td mat-cell class="td-table" *matCellDef="let row"> {{row.tipo}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="localizacao">
+            <th class="th-table"  mat-header-cell *matHeaderCellDef mat-sort-header> Localização </th>
+            <td mat-cell class="td-table" *matCellDef="let row"> {{row.localizacao}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="action">
+            <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+            <td mat-cell class="td-table" *matCellDef="let row">
+              <mat-icon class="icone-tabela">visibility</mat-icon>
+              <mat-icon class="icone-tabela">edit</mat-icon>
+              <mat-icon mat-icon class="icone-tabela">delete</mat-icon>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell no-data" colspan="4">Não foram encontrado dados para a pesquisa "{{input.value}}"</td>
+          </tr>
+        </table>
+
+        <mat-paginator class="shadow-sm" [pageSizeOptions]="[10]" aria-label="Selecione funcionarios por paginas"></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
