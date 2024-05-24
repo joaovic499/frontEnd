@@ -5,6 +5,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FuncionarioService } from '../../../funcionarios/funcionario.service';
 import { CookieService } from 'ngx-cookie-service';
+import { ModalViewPontosComponent } from './modal-view-pontos/modal-view-pontos.component';
+import { Funcionario } from '../../../funcionarios/funcionario';
 
 @Component({
   selector: 'app-lista-pontos-adm',
@@ -75,11 +77,19 @@ export class ListaPontosAdmComponent {
     this.dataSource.sort = this.sort;
   }
 
-
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  openModalViewPontos(row: Funcionario) {
+    this.dialog.open(ModalViewPontosComponent, {
+      width: '700px',
+      height: '330px',
+      data: row
+
+    })
+
   }
 
 

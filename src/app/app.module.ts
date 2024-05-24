@@ -38,6 +38,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatListModule} from '@angular/material/list';
 import { LancamentoPontoComponent } from './funcionarios/timer-funcionario/lancamento-ponto/lancamento-ponto.component';
 import { ListaPontosAdmComponent } from './pages/crud/lista-pontos-adm/lista-pontos-adm.component';
+import { ModalViewPontosComponent } from './pages/crud/lista-pontos-adm/modal-view-pontos/modal-view-pontos.component';
 
 
 
@@ -63,6 +64,7 @@ import { ListaPontosAdmComponent } from './pages/crud/lista-pontos-adm/lista-pon
     TrocarSenhaUsuarioComponent,
     LancamentoPontoComponent,
     ListaPontosAdmComponent,
+    ModalViewPontosComponent,
   ],
   imports: [
     BrowserModule,
