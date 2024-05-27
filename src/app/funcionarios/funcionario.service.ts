@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Funcionario } from './funcionario';
 import { Observable } from 'rxjs';
-import { Tipo } from './timer-funcionario/tipo.enum';
 
 @Injectable({
   providedIn: 'root'

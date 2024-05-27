@@ -17,31 +17,28 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient, public authService: AuthServiceService) { }
 
   ngOnInit(): void {
-      this.http.get<any>('http://localhost:3001/totalfuncionarios').subscribe(
+    this.http.get<any>('http://localhost:3001/totalfuncionarios').subscribe(
         (data) => {
-          this.countFuncionario = data.count;
-          this.spinnerValue = (this.countFuncionario / 150) * 100;
+            this.countFuncionario = data.count;
+            this.spinnerValue = (this.countFuncionario / 150) * 100;
+            this.carregarUltimoFuncionario();
         },
         (error) => {
-          console.error("Erro em contar os funcionario", error);
+            console.error("Erro em contar os funcionario", error);
         }
-      );
+    );
 
-      this.carregarUltimoFuncionario();
-      this.nomeUsuario = this.authService.getNomeUsuario()
-    }
+    this.nomeUsuario = this.authService.getNomeUsuario();
+}
 
-    carregarUltimoFuncionario(){
-
-      this.http.get<any>('http://localhost:3001/funcionario/ultimo').subscribe(
+carregarUltimoFuncionario() {
+    this.http.get<any>('http://localhost:3001/funcionario/ultimo').subscribe(
         (data) => {
-          this.ultimoFuncionario = data;
+            this.ultimoFuncionario = data;
         },
         (error) => {
-          console.error("Erro em pegar o ultimo funcionario", error);
+            console.error("Erro em pegar o ultimo funcionario", error);
         }
-      )
-
-
-    }
+    );
+  }
 }

@@ -1,4 +1,3 @@
-import { Tipo } from './../../../funcionarios/timer-funcionario/tipo.enum';
 import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
