@@ -30,28 +30,26 @@ export class ModalFormUserComponent {
     }
   }
 
-
-
   saveFuncionario() {
-
     const objFuncForm: Funcionario = this.formFuncionario.getRawValue();
     console.log('Dados do funcionário:', objFuncForm);
 
-    if (this.data && this.data.codigo) { // Verifique se data.codigo está definido
-      this.funcionarioService.update(this.data.codigo, objFuncForm ).subscribe(
+    if (this.data && this.data.codigo) {
+      // Se existe um código, significa que está editando um funcionário existente
+      this.funcionarioService.editFuncionario(this.data.codigo, objFuncForm ).subscribe(
         (response: any) => {
-          alert('Usuario Editado com sucesso');
+          alert('Usuário editado com sucesso');
           this.closeModal();
         },
         (error: any) => {
           console.error('Erro ao editar usuário:', error);
-
         }
       );
     } else {
+      // Se não existe um código, está criando um novo funcionário
       this.funcionarioService.create(objFuncForm).subscribe(
         (response: any) => {
-          alert('Funcionario Cadastrado com sucesso');
+          alert('Funcionário cadastrado com sucesso');
           this.closeModal();
         },
         (error: any) => {

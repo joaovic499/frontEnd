@@ -33,6 +33,14 @@ export class FuncionarioService {
     return this.http.get<Funcionario>(`http://localhost:3001/edit/${codigo}`);
   }
 
+  editFuncionario(codigo: String, data: Funcionario){
+    return this.http.put<Funcionario>(`http://localhost:3001/editFuncionario/${codigo}`, data);
+  }
+
+  editPonto(codigo: String, data: Funcionario){
+    return this.http.put<Funcionario>(`http://localhost:3001/editPonto/${codigo}`, data)
+  }
+
   update( codigo: string, data: Funcionario) {
     return this.http.put<Funcionario>(`http://localhost:3001/edit/${codigo}`, data)
 }

@@ -34,7 +34,7 @@ export class ModalFormPontosComponent {
     console.log('Dados do funcionário:', objFuncForm);
 
     if (this.data && this.data.codigo) { // Verifique se data.codigo está definido
-      this.funcionarioService.update(this.data.codigo, objFuncForm ).subscribe(
+      this.funcionarioService.editPonto(this.data.codigo, objFuncForm ).subscribe(
         (response: any) => {
           alert('Usuario Editado com sucesso');
           this.closeModal();

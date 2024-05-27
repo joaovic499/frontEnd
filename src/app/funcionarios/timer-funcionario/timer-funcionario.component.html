@@ -3,11 +3,11 @@
 <div class="container-center">
   <div>
     <mat-list>
-      <h2>Controle de Pontos</h2>
+      <h2> &nbsp; &nbsp;Controle de Pontos</h2>
       <mat-list-item>
-        <a mat-raised-button color="primary" routerLink="/funcionario/timer/lancamento">
+        <button mat-button class="botao-primario" routerLink="/funcionario/timer/lancamento">
           Ver Lançamentos
-        </a>
+        </button>
       </mat-list-item>
       <mat-list-item>
         <span style="color: black;"><strong>Data:</strong>&nbsp;{{ dataAtual }}</span>
@@ -18,13 +18,13 @@
         <a target="_blank" *ngIf="geoLocation" [href]="obterUrlMapa()">abrir mapa</a>
       </mat-list-item>
       <mat-list-item>
-        <button mat-raised-button color="primary" (click)="iniciarTrabalho()" *ngIf="exibirInicioTrabalho() && mapaRenderizado"> Iniciar Trabalho
+        <button class="botao-primario" (click)="iniciarTrabalho()" *ngIf="exibirInicioTrabalho() && mapaRenderizado"> Iniciar Trabalho
         </button>
-        <button mat-raised-button color="primary" (click)="iniciarAlmoco()" *ngIf="exibirInicioAlmoco()"> Iniciar Almoço
+        <button class="botao-primario" (click)="iniciarAlmoco()" *ngIf="exibirInicioAlmoco()"> Iniciar Almoço
         </button>
-        <button mat-raised-button color="primary" (click)="terminarAlmoco()" *ngIf="exibirTerminoAlmoco()"> Terminar Almoço
+        <button class="botao-primario" (click)="terminarAlmoco()" *ngIf="exibirTerminoAlmoco()"> Terminar Almoço
         </button>
-        <button mat-raised-button color="primary" (click)="terminarTrabalho()" *ngIf="exibirTerminoTrabalho()"> Terminar Trabalho
+        <button class="botao-primario" (click)="terminarTrabalho()" *ngIf="exibirTerminoTrabalho()"> Terminar Trabalho
         </button>
       </mat-list-item>
     </mat-list>
